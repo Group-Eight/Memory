@@ -21,9 +21,12 @@ namespace Memory
     public partial class MainMenu : Page
     {
         StackPanel panel = new StackPanel();
+        JSONWriter writer = new JSONWriter();
+
         public MainMenu()
         {
             InitializeComponent();
+            writer.CreateFile("test.json");
             this.setText();
             this.Content = panel;
         }
