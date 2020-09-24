@@ -18,11 +18,12 @@ namespace Memory
     /// <summary>
     /// Interaction logic for Multiplayer.xaml
     /// </summary>
-    public partial class Multiplayer : Page
-    {
-        public Multiplayer()
-        {
+    public partial class Multiplayer : Page {
+
+        Host host = new Host();
+        public Multiplayer() {
             InitializeComponent();
+            // host.Execute();
         }
     }
 }
