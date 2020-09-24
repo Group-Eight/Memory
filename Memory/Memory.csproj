@@ -83,6 +83,7 @@
     <Compile Include="Multiplayer.xaml.cs">
       <DependentUpon>Multiplayer.xaml</DependentUpon>
     </Compile>
+    <Compile Include="multiplayer\Client.cs" />
     <Compile Include="multiplayer\Host.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

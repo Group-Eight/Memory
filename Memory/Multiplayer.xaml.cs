@@ -21,9 +21,12 @@ namespace Memory
     public partial class Multiplayer : Page {
 
         Host host = new Host();
+        Client client = new Client();
+
         public Multiplayer() {
             InitializeComponent();
-            // host.Execute();
+            host.Execute();
+            //client.Execute();
         }
     }
 }

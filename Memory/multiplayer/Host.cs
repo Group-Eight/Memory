@@ -24,31 +24,33 @@ namespace Memory {
             Socket listener = new Socket(ipAddr.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
 
             try {
+                // Bind the IP & Port with the listener socket
                 listener.Bind(ipEndPoint);
                 listener.Listen(10);
                 while (true) {
                     Console.WriteLine("Waiting for connection!");
 
+                    // Accept the clients connection
                     Socket client = listener.Accept();
 
+                    // Variables for the receiving message
                     byte[] bytes = new Byte[1024];
                     string data = null;
 
                     while (true) {
                         int numByte = client.Receive(bytes);
                         data += Encoding.ASCII.GetString(bytes, 0, numByte);
-                        if (data.IndexOf("<EOF>") > -1) { break; }
+                        if (data.IndexOf("<EOF>") >= -1) { break; }
                     }
 
+                    // Write the message to the console - Debug reasons
                     Console.WriteLine("Message received -> {0}", data);
-
-                    byte[] message = new Byte[1024];
-
+                    
+                    // Send the message as bytes.
                     client.Send(Encoding.ASCII.GetBytes("Hello there!"));
 
-                    client.Shutdown(SocketShutdown.Both);
-
-                    client.Close();
+                    //client.Shutdown(SocketShutdown.Both);
+                    //client.Close();
                 }
             } catch (Exception e) { Console.WriteLine(e.ToString()); }
         }
