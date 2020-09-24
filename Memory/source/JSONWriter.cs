@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using Newtonsoft.Json.Linq;
+using System.Diagnostics.Eventing.Reader;
 
 namespace Memory {
     class JSONWriter {
@@ -28,6 +29,11 @@ namespace Memory {
             } else {
                 Console.WriteLine("File already exists! No file was created...");
             }
+        }
+
+        private bool exists(string filePath) {
+            if (File.Exists(filePath)) { return true; }
+            return false;
         }
 
         private JObject ToJSON(string key, string value) {
