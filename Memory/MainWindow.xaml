@@ -1,5 +1,5 @@
 ﻿<NavigationWindow x:Class="Memory.MainWindow"
      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-     Title="Memory" Height="1080" Width="1920" Source="MainMenu.xaml">
+     Title="Memory" Height="1080" Width="1920" Source="Multiplayer.xaml">
 </NavigationWindow>

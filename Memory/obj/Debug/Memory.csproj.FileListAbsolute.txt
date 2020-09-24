@@ -32,3 +32,5 @@ C:\Users\mathi\Documents\Memory\Memory\obj\Debug\Memory.csproj.GenerateResource.
 C:\Users\mathi\Documents\Memory\Memory\obj\Debug\Memory.csproj.CoreCompileInputs.cache
 C:\Users\mathi\Documents\Memory\Memory\obj\Debug\Memory.exe
 C:\Users\mathi\Documents\Memory\Memory\obj\Debug\Memory.pdb
+C:\Users\mathi\Documents\Memory\Memory\obj\Debug\Multiplayer.g.cs
+C:\Users\mathi\Documents\Memory\Memory\obj\Debug\Multiplayer.baml
