@@ -47,9 +47,8 @@ namespace Memory {
              * Arguments: Key & Value
              * Return value: Non existing
              */
-            Console.WriteLine(this.ToJSON(key, value));
             using (StreamWriter outputFile = new StreamWriter(filePath)) {
-                outputFile.WriteLine("Writing to this file");
+                outputFile.WriteLine(this.ToJSON(key, value));
             }
         }
     }
