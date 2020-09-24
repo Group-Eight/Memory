@@ -32,3 +32,6 @@ C:\Users\mathi\Documents\Memory\Memory\obj\Debug\Memory.csproj.GenerateResource.
 C:\Users\mathi\Documents\Memory\Memory\obj\Debug\Memory.csproj.CoreCompileInputs.cache
 C:\Users\mathi\Documents\Memory\Memory\obj\Debug\Memory.exe
 C:\Users\mathi\Documents\Memory\Memory\obj\Debug\Memory.pdb
+C:\Users\mathi\Documents\Memory\Memory\bin\Debug\Newtonsoft.Json.dll
+C:\Users\mathi\Documents\Memory\Memory\bin\Debug\Newtonsoft.Json.xml
+C:\Users\mathi\Documents\Memory\Memory\obj\Debug\Memory.csproj.CopyComplete

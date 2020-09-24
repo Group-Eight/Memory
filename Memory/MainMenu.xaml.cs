@@ -27,6 +27,7 @@ namespace Memory
         {
             InitializeComponent();
             writer.CreateFile("test.json");
+            writer.WriteTo("test.json", "key", "value");
             this.setText();
             this.Content = panel;
         }

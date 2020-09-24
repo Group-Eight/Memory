@@ -1,5 +1,6 @@
 ﻿using Memory;
 using System;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using Newtonsoft.Json.Linq;
 
 namespace Memory {
     class JSONWriter {
@@ -24,16 +26,31 @@ namespace Memory {
             if (!File.Exists(fileName)) {
                 File.Create(fileName);
             } else {
-                MessageBox.Show("File with name already exists!");
+                Console.WriteLine("File already exists! No file was created...");
             }
         }
 
-        public void WriteTo() {
+        private JObject ToJSON(string key, string value) {
+            /*
+             * This is a method for string to json conversion
+             * Arguments: Key & Value
+             * Return value: string
+             */
+            string jsonObject = @"{'{0}': '{1}'}";
+            JObject obj = JObject.Parse(jsonObject);
+            return obj;
+        }
+
+        public void WriteTo(string filePath, string key, string value) {
             /*
              * This is the method that writes to a JSON file
              * Arguments: Key & Value
              * Return value: Non existing
              */
+            Console.WriteLine(this.ToJSON(key, value));
+            using (StreamWriter outputFile = new StreamWriter(filePath)) {
+                outputFile.WriteLine("Writing to this file");
+            }
         }
     }
 }
