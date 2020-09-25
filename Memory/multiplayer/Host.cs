@@ -36,6 +36,9 @@ namespace Memory {
                     // Accept the clients connection
                     Socket client = listener.Accept();
 
+                    // Gameplay here 
+                    // ---------------------
+
                     // Variables for the receiving message
                     string data = null;
 

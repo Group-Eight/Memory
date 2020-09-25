@@ -30,6 +30,9 @@ namespace Memory {
                         // Connect to the Host his socket
                         sender.Connect(ipEndPoint);
 
+                        // Gameplay here
+                        // -------------------------
+
                         Console.WriteLine("Connected to the host...");
 
                         server.sendMessage(sender, "Een hele mooie boodschap");
