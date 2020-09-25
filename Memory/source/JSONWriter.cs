@@ -59,15 +59,13 @@ namespace Memory {
              * Arguments: Key & Value
              * Return value: Non existing
              */
-            JObject read;
             JObject newObject = this.ToJSON(key, value);
-            //Console.WriteLine(this.exists(filePath));
-            //if (this.exists(filePath)) {
-            //    // Parse the already made file
-            //    read = this.parseJSON(filePath);
-            //    read.Add(key, value);
-            //    newObject = read;
-            //}
+            if (this.exists(filePath)) {
+                // Parse the already made file
+                JObject read = this.parseJSON(filePath);
+                read.Add(key, value);
+                newObject = read;
+            }
             using (StreamWriter outputFile = new StreamWriter(filePath)) {
                 outputFile.WriteLine(newObject);
             }
