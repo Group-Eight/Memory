@@ -32,10 +32,7 @@ namespace Memory {
 
                         Console.WriteLine("Connected to the host...");
 
-                        // Create a message to send to the Host
-                        byte[] message = Encoding.ASCII.GetBytes("Client says hi");
-                        // Send the message
-                        int byteSend = sender.Send(message);
+                        server.sendMessage(sender, "Een hele mooie boodschap");
 
                         // Write the message to the console - Debug reasons
                         Console.WriteLine("Message -> {0}", server.receiveMessage(sender));

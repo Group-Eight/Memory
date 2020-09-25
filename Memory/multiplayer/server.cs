@@ -7,8 +7,9 @@ namespace Memory {
             // Constructor
         }
 
-        public void sendMessage() {
-
+        public void sendMessage(Socket socket, string message) {
+            byte[] byData = Encoding.ASCII.GetBytes(message);
+            socket.Send(byData);
         }
 
         public string receiveMessage(Socket sock) {

@@ -46,9 +46,9 @@ namespace Memory {
 
                     // Write the message to the console - Debug reasons
                     Console.WriteLine("Message received -> {0}", data);
-                    
+
                     // Send the message as bytes.
-                    client.Send(Encoding.ASCII.GetBytes("Hello there!"));
+                    server.sendMessage(client ,"Boodschap");
 
                     //client.Shutdown(SocketShutdown.Both);
                     //client.Close();
