@@ -58,6 +58,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="source\JSONParser.cs" />
     <Compile Include="source\JSONWriter.cs" />
     <Page Include="MainMenu.xaml">
       <SubType>Designer</SubType>

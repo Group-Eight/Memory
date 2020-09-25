@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace Memory {
     class JSONParser {
@@ -10,14 +11,20 @@ namespace Memory {
         public JSONParser(string filePath) {
             // Constructor
             this.content = this.parse(filePath);
+            Console.WriteLine(this.content);
         }
 
         private JObject parse(string filePath) {
-            return;
+            string content = "";
+            using (StreamReader reader = new StreamReader(filePath)) {
+                content = reader.ReadToEnd();
+            }
+            return JObject.Parse(content);
         }
 
         public List<string> getUsers() {
-            return;
+            List<string> users = new List<string> { };
+            return users;
         }
     }
 }

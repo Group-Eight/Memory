@@ -23,6 +23,7 @@ namespace Memory
     public partial class MainMenu : Page
     {
         StackPanel panel = new StackPanel();
+        JSONParser parser = new JSONParser("template.json");
 
         public MainMenu()
         {
