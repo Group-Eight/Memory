@@ -9,7 +9,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using Newtonsoft.Json.Linq;
-using System.Diagnostics.Eventing.Reader;
 
 namespace Memory {
     class JSONWriter {
@@ -42,9 +41,16 @@ namespace Memory {
              * Arguments: Key & Value
              * Return value: string
              */
-            string jsonObject = @"{'{0}': '{1}'}";
-            JObject obj = JObject.Parse(jsonObject);
-            return obj;
+            string jsonObject = @"{'" + key + "': '" + value + "'}";
+            return JObject.Parse(jsonObject);
+        }
+
+        private JObject parseJSON(string filePath) {
+            string content = "";
+            using (StreamReader ouputFile = new StreamReader(filePath)) {
+                content = ouputFile.ReadToEnd();
+            }
+            return JObject.Parse(content);
         }
 
         public void WriteTo(string filePath, string key, string value) {
@@ -53,8 +59,17 @@ namespace Memory {
              * Arguments: Key & Value
              * Return value: Non existing
              */
+            JObject read;
+            JObject newObject = this.ToJSON(key, value);
+            //Console.WriteLine(this.exists(filePath));
+            //if (this.exists(filePath)) {
+            //    // Parse the already made file
+            //    read = this.parseJSON(filePath);
+            //    read.Add(key, value);
+            //    newObject = read;
+            //}
             using (StreamWriter outputFile = new StreamWriter(filePath)) {
-                outputFile.WriteLine(this.ToJSON(key, value));
+                outputFile.WriteLine(newObject);
             }
         }
     }
