@@ -23,7 +23,6 @@ namespace Memory
     public partial class MainMenu : Page
     {
         StackPanel panel = new StackPanel();
-        JSONWriter writer = new JSONWriter();
 
         public MainMenu()
         {

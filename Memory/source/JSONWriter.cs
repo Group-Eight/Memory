@@ -1,13 +1,5 @@
 ﻿using Memory;
-using System;
-using Newtonsoft.Json;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using Newtonsoft.Json.Linq;
 
 namespace Memory {
@@ -33,9 +25,8 @@ namespace Memory {
              */
             if (!File.Exists(filePath)) {
                 File.Create(filePath);
-            } else {
-                Console.WriteLine("File already exists! No file was created...");
             }
+            return;
         }
 
         private bool exists(string filePath) {
