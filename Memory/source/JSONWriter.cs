@@ -13,6 +13,14 @@ using Newtonsoft.Json.Linq;
 namespace Memory {
     class JSONWriter {
 
+        /*
+         * < Usage >
+         * JSONWriter writer = new JSONWriter();
+         * writer.CreateFile(filePath);
+         * writer.WriteTo(filePath, stringValue: string, objectValue: obj);
+         * 
+         * The argument types can be found below.
+         */
         public JSONWriter() {
             // Constructor
         }
@@ -46,8 +54,8 @@ namespace Memory {
              * Arguments: Key & Value
              * Return value: JObject
              */
-            string jsonObject = @"{'" + key + "': '" + value + "'}";
-            return JObject.Parse(jsonObject);
+            string newObject = @"{'" + key + "': '" + value + "'}";
+            return JObject.Parse(newObject);
         }
 
         private JObject parseJSON(string filePath) {
@@ -75,7 +83,6 @@ namespace Memory {
             else if (objectValue != null) { value = objectValue as JToken; }
             JObject newObject = this.ToJSON(key, value);
             if (this.exists(filePath)) {
-                // Parse the already made file
                 JObject read = this.parseJSON(filePath);
                 read.Add(key, value);
                 newObject = read;

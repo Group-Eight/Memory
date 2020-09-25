@@ -28,9 +28,6 @@ namespace Memory
         public MainMenu()
         {
             InitializeComponent();
-            writer.CreateFile("test.json");
-            JObject obj = JObject.Parse(@"{'newObject': 'values', 'secObject': 'secValues'}");
-            writer.WriteTo("test.json", "fifthObject",  objectValue: obj);
             this.setText();
             this.Content = panel;
         }
