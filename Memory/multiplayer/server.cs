@@ -1,4 +1,5 @@
 ﻿using System.Net.Sockets;
+using System.Text;
 
 namespace Memory {
     class Server {
@@ -12,8 +13,8 @@ namespace Memory {
 
         public string receiveMessage(Socket sock) {
             byte[] receiver = new byte[1024];
-            sock.Receive(receiver);
-            return 
+            int byteRecv = sock.Receive(receiver);
+            return Encoding.ASCII.GetString(receiver, 0, byteRecv);
         }
     }
 }

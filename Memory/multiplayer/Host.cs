@@ -7,6 +7,9 @@ using System.Text;
 
 namespace Memory {
     class Host {
+
+        Server server = new Server();
+
         public Host() {
             // Constructor
         }
@@ -34,12 +37,10 @@ namespace Memory {
                     Socket client = listener.Accept();
 
                     // Variables for the receiving message
-                    byte[] bytes = new Byte[1024];
                     string data = null;
 
                     while (true) {
-                        int numByte = client.Receive(bytes);
-                        data += Encoding.ASCII.GetString(bytes, 0, numByte);
+                        data += server.receiveMessage(client);
                         if (data.IndexOf("<EOF>") >= -1) { break; }
                     }
 

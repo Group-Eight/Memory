@@ -7,6 +7,9 @@ using System.Text;
 
 namespace Memory {
     class Client {
+
+        Server server = new Server();
+
         public Client() {
             // Constructor
         }
@@ -34,13 +37,8 @@ namespace Memory {
                         // Send the message
                         int byteSend = sender.Send(message);
 
-                        // Create the variable for the receiving message
-                        byte[] receiver = new byte[1024];
-                        // Store the received message
-                        int byteRecv = sender.Receive(receiver);
-
                         // Write the message to the console - Debug reasons
-                        Console.WriteLine("Message -> {0}", Encoding.ASCII.GetString(receiver, 0, byteRecv));
+                        Console.WriteLine("Message -> {0}", server.receiveMessage(sender));
 
                         //sender.Shutdown(SocketShutdown.Both);
                         //sender.Close();
