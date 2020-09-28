@@ -12,7 +12,8 @@ namespace Memory {
         public JSONParser(string filePath) {
             // Constructor
             this.content = this.parse(filePath);
-            Console.WriteLine(this.getTokens("powerups")[0]);
+            foreach (var i in this.getTokens("score")) { Console.WriteLine(i); }
+            //Console.WriteLine(this.getTokens("grid"));
         }
 
         private JObject parse(string filePath) {
@@ -26,7 +27,8 @@ namespace Memory {
         public List<JToken> getTokens(string key) {
             List<JToken> tokens = new List<JToken> { };
             foreach (var x in this.content) { 
-                if (x.Key == key) { 
+                if (x.Key == key) {
+                    if (x.Value.GetType() == typeof(JValue)) { tokens.Add(x.Value); }
                     foreach (var values in x.Value) {
                         foreach (var user in values) { tokens.Add(user); }
                     }
