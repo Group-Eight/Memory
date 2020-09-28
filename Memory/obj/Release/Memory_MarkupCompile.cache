@@ -4,11 +4,11 @@
 winexe
 C#
 .cs
-C:\Users\lisan\Documents\GitHub\Memory\Memory\obj\Debug\
+C:\Users\lisan\Documents\GitHub\Memory\Memory\obj\Release\
 Memory
 none
 false
-DEBUG;TRACE
+TRACE
 C:\Users\lisan\Documents\GitHub\Memory\Memory\App.xaml
 214489500
 
