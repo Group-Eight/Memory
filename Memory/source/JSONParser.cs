@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Security.RightsManagement;
 
 namespace Memory {
     class JSONParser {
@@ -11,7 +12,7 @@ namespace Memory {
         public JSONParser(string filePath) {
             // Constructor
             this.content = this.parse(filePath);
-            Console.WriteLine(this.content);
+            Console.WriteLine(this.getTokens("powerups")[0]);
         }
 
         private JObject parse(string filePath) {
@@ -22,9 +23,16 @@ namespace Memory {
             return JObject.Parse(content);
         }
 
-        public List<string> getUsers() {
-            List<string> users = new List<string> { };
-            return users;
+        public List<JToken> getTokens(string key) {
+            List<JToken> tokens = new List<JToken> { };
+            foreach (var x in this.content) { 
+                if (x.Key == key) { 
+                    foreach (var values in x.Value) {
+                        foreach (var user in values) { tokens.Add(user); }
+                    }
+                }
+            }
+            return tokens;
         }
     }
 }
