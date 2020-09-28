@@ -25,6 +25,7 @@ namespace Memory
         {
             InitializeComponent();
             this.setText();
+            this.setButton();
             this.Content = panel;
         }
 
@@ -32,6 +33,20 @@ namespace Memory
             Label title = new Label();
             title.Content = "Hello World";
             panel.Children.Add(title);
+        }
+        private void setButton()
+        {
+            Button button = new Button();
+            button.Content = "Hello World";
+            button.Width = 200;
+            button.Click += btn1Click;
+            panel.Children.Add(button);
+            
+        }
+        private void btn1Click(object sender, RoutedEventArgs e)
+        {
+            MemoryCard memorycard = new MemoryCard();
+            this.NavigationService.Navigate(memorycard);
         }
     }
 }
