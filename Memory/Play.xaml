@@ -1,0 +1,39 @@
+﻿<Page x:Class="Memory.Play"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Memory"
+      mc:Ignorable="d" 
+      d:DesignHeight="1080" d:DesignWidth="1920"
+      Title="Play">
+
+    <Grid Height="1080" Width="1920">
+        <Grid.Background>
+            <ImageBrush ImageSource="/main_background.png" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <Grid Height="100" Width="300" Margin="810,83,810,897">
+            <Label Content="Kies een mode" FontSize="40" Foreground="White" Background="Black"></Label>
+        </Grid>
+        <Grid Height="100" Width="300" Margin="1197,298,423,682">
+            <Button Background="Black" Foreground="White" FontSize="30" Click="onClickPlayMultiplayer">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="15"/>
+                    </Style>
+                </Button.Resources>
+                Multiplayer
+            </Button>
+        </Grid>
+        <Grid Height="100" Width="300" Margin="336,298,1284,682">
+            <Button Background="Black" Foreground="White" FontSize="30" Click="onClickPlayLocal">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="15"/>
+                    </Style>
+                </Button.Resources>
+                Local
+            </Button>
+        </Grid>
+    </Grid>
+</Page>

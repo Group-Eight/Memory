@@ -53,3 +53,5 @@ D:\NHL\memory\Memory\Memory\obj\Debug\HighScores.g.cs
 D:\NHL\memory\Memory\Memory\obj\Debug\Options.g.cs
 D:\NHL\memory\Memory\Memory\obj\Debug\HighScores.baml
 D:\NHL\memory\Memory\Memory\obj\Debug\Options.baml
+D:\NHL\memory\Memory\Memory\obj\Debug\Play.g.cs
+D:\NHL\memory\Memory\Memory\obj\Debug\Play.baml

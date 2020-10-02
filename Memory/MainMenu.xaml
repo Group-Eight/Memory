@@ -13,7 +13,7 @@
             <ImageBrush ImageSource="/main_background.png" Stretch="UniformToFill"/>
         </Grid.Background>
         <Grid Height="100" VerticalAlignment="Top" Width="300" RenderTransformOrigin="0.515,1.23" Margin="810,56,810,0">
-            <Button Background="Black" Foreground="White" Click="onClickPlay">
+            <Button Background="Black" FontSize="30" Foreground="White" Click="onClickPlay">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="15"/>
@@ -23,7 +23,7 @@
             </Button>
         </Grid>
         <Grid Height="100" Width="300" Margin="810,277,810,703">
-            <Button Background="Black" Foreground="White" Click="onClickOptions">
+            <Button Background="Black" FontSize="30" Foreground="White" Click="onClickOptions">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="15"/>
@@ -32,8 +32,18 @@
                 Options
             </Button>
         </Grid>
+        <Grid Height="100" Width="300" Margin="810,541,810,439">
+            <Button Background="Black" FontSize="30" Foreground="White" Click="onClickHighscore">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="15"/>
+                    </Style>
+                </Button.Resources>
+                HighScores
+            </Button>
+        </Grid>
         <Grid Height="100" Width="300" Margin="810,879,810,101">
-            <Button Background="Black" Foreground="White" Click="onClickQuit">
+            <Button Background="Black" FontSize="30" Foreground="White" Click="onClickQuit">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="15"/>

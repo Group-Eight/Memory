@@ -36,7 +36,8 @@ namespace Memory
 
         private void onClickPlay(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Hello, world!");
+            Uri uri = new Uri("Play.xaml", UriKind.Relative);
+            this.NavigationService.Navigate(uri);
         }
 
         private void onClickHighscore(object sender, RoutedEventArgs e)
