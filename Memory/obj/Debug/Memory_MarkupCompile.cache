@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\mathi\Documents\Memory\Memory\obj\Debug\
+D:\NHL\memory\Memory\Memory\obj\Debug\
 Memory
 none
 false
 DEBUG;TRACE
-C:\Users\mathi\Documents\Memory\Memory\App.xaml
-214489500
+D:\NHL\memory\Memory\Memory\App.xaml
+4953859167
 
-61021383061
+81986184192
 13-1505183044
-MainMenu.xaml;MainWindow.xaml;
+HighScores.xaml;MainMenu.xaml;MainWindow.xaml;Options.xaml;
 
 False
 
