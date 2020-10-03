@@ -20,18 +20,18 @@ namespace Memory
     /// </summary>
     public partial class MainMenu : Page
     {
-        StackPanel panel = new StackPanel();
+        //StackPanel panel = new StackPanel();
         public MainMenu()
         {
             InitializeComponent();
-            this.setText();
-            this.Content = panel;
+            //this.setText();
+            //this.Content = panel;
         }
 
-        private void setText() {
-            Label title = new Label();
-            title.Content = "Hello World";
-            panel.Children.Add(title);
-        }
+        //private void setText() {
+        //    Label title = new Label();
+        //    title.Content = "Hello World";
+        //    panel.Children.Add(title);
+        //}
     }
 }
