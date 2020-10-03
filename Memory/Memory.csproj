@@ -58,15 +58,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-<<<<<<< HEAD
     <Page Include="HighScores.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-=======
     <Compile Include="source\JSONParser.cs" />
     <Compile Include="source\JSONWriter.cs" />
->>>>>>> 89519e296777bc143a3b1fe2cb2c01827071d7f2
     <Page Include="MainMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

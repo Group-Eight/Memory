@@ -55,7 +55,7 @@ namespace Memory
         }
         private void onClickQuit(object sender, RoutedEventArgs e)
         {
-            
+            System.Windows.Application.Current.Shutdown();
         }
     }
 }

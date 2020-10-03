@@ -24,5 +24,12 @@ namespace Memory
         {
             InitializeComponent();
         }
+
+        private void onClickBack(object sender, RoutedEventArgs e)
+        {
+            Uri uri = new Uri("MainMenu.xaml", UriKind.Relative);
+            this.NavigationService.Navigate(uri);
+        }
+
     }
 }
