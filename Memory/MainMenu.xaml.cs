@@ -27,14 +27,35 @@ namespace Memory
         public MainMenu()
         {
             InitializeComponent();
-            this.setText();
-            this.Content = panel;
+            //this.setText();
+            //this.Content = panel;
         }
 
         private void setText() {
-            Label title = new Label();
-            title.Content = "Hello World";
-            panel.Children.Add(title);
+            //Label title = new Label();
+            //title.Content = "Hello World";
+            //panel.Children.Add(title);
+        }
+
+        private void onClickPlay(object sender, RoutedEventArgs e)
+        {
+            Uri uri = new Uri("Play.xaml", UriKind.Relative);
+            this.NavigationService.Navigate(uri);
+        }
+
+        private void onClickHighscore(object sender, RoutedEventArgs e)
+        {
+            Uri uri = new Uri("HighScores.xaml", UriKind.Relative);
+            this.NavigationService.Navigate(uri);
+        }
+        private void onClickOptions(object sender, RoutedEventArgs e)
+        {
+            Uri uri = new Uri("Options.xaml", UriKind.Relative);
+            this.NavigationService.Navigate(uri);
+        }
+        private void onClickQuit(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }
