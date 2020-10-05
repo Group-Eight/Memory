@@ -12,7 +12,16 @@
         <Grid.Background>
             <ImageBrush ImageSource="/main_background.png" Stretch="UniformToFill"/>
         </Grid.Background>
-        <Grid Height="100" VerticalAlignment="Top" Width="300" RenderTransformOrigin="0.515,1.23" Margin="810,56,810,0">
+        <Grid Margin="480,44,480,927">
+            <Label Content="Memory" FontSize="70" Foreground="White" HorizontalAlignment="Center" Margin="300,0">
+                <Label.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="15"/>
+                    </Style>
+                </Label.Resources>
+            </Label>
+        </Grid>
+        <Grid Height="100" VerticalAlignment="Top" Width="300" RenderTransformOrigin="0.515,1.23" Margin="810,177,810,0">
             <Button Background="Black" FontSize="30" Foreground="White" Click="onClickPlay">
                 <Button.Resources>
                     <Style TargetType="Border">
@@ -22,7 +31,7 @@
                 Play
             </Button>
         </Grid>
-        <Grid Height="100" Width="300" Margin="810,277,810,703">
+        <Grid Height="100" Width="300" Margin="810,355,810,625">
             <Button Background="Black" FontSize="30" Foreground="White" Click="onClickOptions">
                 <Button.Resources>
                     <Style TargetType="Border">

@@ -12,8 +12,38 @@
         <Grid.Background>
             <ImageBrush ImageSource="/main_background.png" Stretch="UniformToFill"/>
         </Grid.Background>
-        <Grid Height="100" Width="300" Margin="810,83,810,897">
-            <Label> </Label>
+        <Grid Margin="480,44,480,927">
+            <Label Content="HighScores" FontSize="70" Foreground="White" HorizontalAlignment="Center" Margin="300,0">
+                <Label.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="15"/>
+                    </Style>
+                </Label.Resources>
+            </Label>
+        </Grid>
+        <Grid Margin="91,10,638,0">
+            <TextBlock x:Name="HighScoreName1" FontSize="50" Foreground="White" Margin="47,147,192,856">1.</TextBlock>
+            <TextBlock x:Name="HighScoreName2" FontSize="50" Foreground="White" Margin="47,219,192,784">2.</TextBlock>
+            <TextBlock x:Name="HighScoreName3" FontSize="50" Foreground="White" Margin="47,291,192,712">3.</TextBlock>
+            <TextBlock x:Name="HighScoreName4" FontSize="50" Foreground="White" Margin="47,363,192,640">4.</TextBlock>
+            <TextBlock x:Name="HighScoreName5" FontSize="50" Foreground="White" Margin="47,435,192,568">5.</TextBlock>
+            <TextBlock x:Name="HighScoreName6" FontSize="50" Foreground="White" Margin="47,507,192,496">6.</TextBlock>
+            <TextBlock x:Name="HighScoreName7" FontSize="50" Foreground="White" Margin="47,579,192,424">7.</TextBlock>
+            <TextBlock x:Name="HighScoreName8" FontSize="50" Foreground="White" Margin="47,651,192,352">8.</TextBlock>
+            <TextBlock x:Name="HighScoreName9" FontSize="50" Foreground="White" Margin="47,723,192,280">9.</TextBlock>
+            <TextBlock x:Name="HighScoreName10" FontSize="50" Foreground="White" Margin="47,795,192,208">10.</TextBlock>
+        </Grid>
+        <Grid Margin="882,10,0,0">
+            <TextBlock x:Name="HighScorePoints1" FontSize="50" Foreground="White" Margin="47,147,192,856">0</TextBlock>
+            <TextBlock x:Name="HighScorePoints2" FontSize="50" Foreground="White" Margin="47,219,192,784">0</TextBlock>
+            <TextBlock x:Name="HighScorePoints3" FontSize="50" Foreground="White" Margin="47,291,192,712">0</TextBlock>
+            <TextBlock x:Name="HighScorePoints4" FontSize="50" Foreground="White" Margin="47,363,192,640">0</TextBlock>
+            <TextBlock x:Name="HighScorePoints5" FontSize="50" Foreground="White" Margin="47,435,192,568">0</TextBlock>
+            <TextBlock x:Name="HighScorePoints6" FontSize="50" Foreground="White" Margin="47,507,192,496">0</TextBlock>
+            <TextBlock x:Name="HighScorePoints7" FontSize="50" Foreground="White" Margin="47,579,192,424">0</TextBlock>
+            <TextBlock x:Name="HighScorePoints8" FontSize="50" Foreground="White" Margin="47,651,192,352">0</TextBlock>
+            <TextBlock x:Name="HighScorePoints9" FontSize="50" Foreground="White" Margin="47,723,192,280">0</TextBlock>
+            <TextBlock x:Name="HighScorePoints10" FontSize="50" Foreground="White" Margin="47,795,192,208">0</TextBlock>
         </Grid>
         <Grid Height="100" Width="300" Margin="810,879,810,101">
             <Button Background="Black" Foreground="White" FontSize="30" Click="onClickBack">

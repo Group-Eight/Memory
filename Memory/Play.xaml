@@ -12,8 +12,8 @@
         <Grid.Background>
             <ImageBrush ImageSource="/main_background.png" Stretch="UniformToFill"/>
         </Grid.Background>
-        <Grid Height="100" Width="300" Margin="810,83,810,897">
-            <Label Content="Kies een mode" FontSize="40" Foreground="White" Background="Black" HorizontalAlignment="Center">
+        <Grid Height="100" Margin="480,44,480,927">
+            <Label Content="Kies een mode" FontSize="70" Foreground="White" HorizontalAlignment="Center">
                 <Label.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="15"/>
