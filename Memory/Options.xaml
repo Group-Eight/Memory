@@ -8,22 +8,30 @@
       d:DesignHeight="1080" d:DesignWidth="1920"
       Title="Options">
 
-    <Grid Height="1080" Width="1920">
-        <Grid.Background>
-            <ImageBrush ImageSource="/main_background.png" Stretch="UniformToFill"/>
-        </Grid.Background>
-        <Grid Height="100" Width="300" Margin="810,83,810,897">
-            <Label></Label>
-        </Grid>
-        <Grid Height="100" Width="300" Margin="810,879,810,101">
-            <Button Background="Black" Foreground="White" Click="onClickBack">
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="15"/>
-                    </Style>
-                </Button.Resources>
-                Back
-            </Button>
-        </Grid>
+    <Grid x:Name="GameGrid" 
+          HorizontalAlignment="Stretch" 
+          VerticalAlignment="Stretch" 
+          Margin="5"
+          ShowGridLines="True">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Button />
+        <Button Grid.Row="1" Grid.Column="1" FontSize="40px">Test</Button>
     </Grid>
 </Page>

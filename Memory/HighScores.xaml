@@ -16,7 +16,7 @@
             <Label> </Label>
         </Grid>
         <Grid Height="100" Width="300" Margin="810,879,810,101">
-            <Button Background="Black" Foreground="White" Click="onClickBack">
+            <Button Background="Black" Foreground="White" FontSize="30" Click="onClickBack">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="15"/>
