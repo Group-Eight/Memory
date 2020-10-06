@@ -13,7 +13,7 @@ namespace Memory {
          * 
          * The argument types can be found below.
          */
-        public JSONWriter() {
+        public JSONWriter("/bin/Debug") {
             // Constructor
         }
 
