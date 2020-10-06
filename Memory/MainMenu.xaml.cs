@@ -43,10 +43,16 @@ namespace Memory
             panel.Children.Add(button);
             
         }
+        private void SetCards()
+        {
+            Image Card1 = new Image();
+            Card1.Source = new BitmapImage(new Uri("C:/Users/lisan/Documents/GitHub/Memory/Memory/bin/debug/logo.png"));
+        }
         private void btn1Click(object sender, RoutedEventArgs e)
         {
             MemoryCard memorycard = new MemoryCard();
             this.NavigationService.Navigate(memorycard);
         }
+
     }
 }
