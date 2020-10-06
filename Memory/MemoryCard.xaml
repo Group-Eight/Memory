@@ -12,7 +12,7 @@
     <Canvas x:Name="Page" Background="Aqua">
 
         <Button Width="125" Height="21" HorizontalAlignment="Left" Click="Button_Click" Canvas.Left="284" Canvas.Top="40">View</Button>
-        <Button Width="125" Height="25" Click="CommandBinding_Executed" Canvas.Left="284" Canvas.Top="66">SAVEEEEEE</Button>
+        
         <Canvas x:Name="Card" Width="256" Height="256">
             <Canvas.RenderTransform>
                 <TranslateTransform X="0" Y="0"/>
@@ -181,6 +181,6 @@
 
         </Canvas>
 
-        <Image Width="144" Height="154" Source="C:\Users\lisan\Documents\GitHub\Memory\Memory\bin\debug\Card0.png" Canvas.Left="10" Canvas.Top="286"/>
+        <!--<Image Width="144" Height="154" Source="C:\Users\lisan\Documents\GitHub\Memory\Memory\bin\debug\Card0.png" Canvas.Left="10" Canvas.Top="286"/>-->
     </Canvas>
 </Page>

@@ -21,101 +21,22 @@ namespace Memory
     public partial class MemoryCard : Page
     {
         int savedImg = 0;
+        List<Path> People;
+        List<Canvas> Buildings;
+
+        private static Random rand = new Random();
+
         public MemoryCard()
         {
             InitializeComponent();
             Card.Background = new SolidColorBrush(Colors.Black);
-            
-
+            People = new List<Path> { Person1, Person2, Person3, Person4, Person5, Person6, Person7, Person8, Person9, Person10, Person11, Person12, Person13, Person14, Person15, Person16, Person17, Person18, Person19, Person20, Person21, Person22, Person23, Person24, Person25, Person26, Person27, Person28, Person29, Person30, Person31, Person32 };
+            Buildings = new List<Canvas> { Building_1, Building_2, Building_3, Building_4 };
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
-            //order buildings go
-
-            // 0-3
-            SetCards(2, 10);
-
-
-
-
-
-
-            /*int first = RandomValue(0, 4);
-            if (first == 0)
-            {
-                Canvas.SetLeft(Building_1, 0);
-                Canvas.SetLeft(Building_2, RandomValue(40, 150));
-                Canvas.SetLeft(Building_3, RandomValue(140, 200));
-                Canvas.SetLeft(Building_4, RandomValue(190, 220));
-                Canvas.SetZIndex(moon, -1);
-            }
-            else if (first == 1)
-            {
-                Canvas.SetLeft(Building_2, 0);
-                Canvas.SetLeft(Building_3, RandomValue(90, 170));
-                Canvas.SetLeft(Building_4, RandomValue(140, 200));
-                Canvas.SetLeft(Building_1, RandomValue(190, 220));
-                Canvas.SetZIndex(moon, -1);
-            }
-            else if (first == 2)
-            {
-                Canvas.SetLeft(Building_3, 0);
-                Canvas.SetLeft(Building_4, RandomValue(40, 150));
-                Canvas.SetLeft(Building_1, RandomValue(140, 200));
-                Canvas.SetLeft(Building_2, RandomValue(190, 220));
-                Canvas.SetZIndex(moon, 1);
-            }
-            else if (first == 3)
-            {
-                Canvas.SetLeft(Building_4, 0);
-                Canvas.SetLeft(Building_1, RandomValue(40, 150));
-                Canvas.SetLeft(Building_2, RandomValue(140, 200));
-                Canvas.SetLeft(Building_3, RandomValue(190, 220));
-                Canvas.SetZIndex(moon, 1);
-            }
-            else if (first == 4)
-            {
-                Canvas.SetLeft(Building_2, 0);
-                Canvas.SetLeft(Building_4, RandomValue(40, 150));
-                Canvas.SetLeft(Building_1, RandomValue(140, 200));
-                Canvas.SetLeft(Building_3, RandomValue(190, 220));
-                Canvas.SetZIndex(moon, -1);
-            }
-
-
-            // b1 = 50
-            //b2 = 70
-            //b3 = 90;
-            //b4 = 120
-
-
-            switch (first)
-            {
-                case 0:
-                    SetCard(0, RandomValue(40, 50), RandomValue(100, 110), 0, 0);
-                    break;
-                case 1:
-                    SetCard(1, 0, RandomValue(40, 50), 0, 1);
-                    Canvas.SetLeft(Building_2, 0);
-                    Canvas.SetLeft(Building_3, RandomValue(90, 170));
-                    Canvas.SetLeft(Building_4, RandomValue(140, 200));
-                    Canvas.SetLeft(Building_1, RandomValue(190, 220));
-                    Canvas.SetZIndex(moon, -1);
-                    break;
-                case 2:
-                    SetCard(2, 3, 0, 1, 1);
-                    break;
-                case 3:
-                    SetCard(2, 3, 0, 0, 1);
-                    break;
-                case 4:
-                    SetCard(2, 3, 0, 1, 1);
-                    break;
-            }
-
-            */
+            SetCards(3, 10);
 
         }
         public int RandomValue(int min, int max)
@@ -128,88 +49,82 @@ namespace Memory
         public void SetCards(int difficulty, int amountcards)
         {
             // ez
-
+            if (difficulty == 1)
+            {
+                Console.WriteLine("EZ: Gamemode 1");
+            }
             // medium
-
+            if (difficulty == 2)
+            {
+                Console.WriteLine("Medium: Gamemode 2");
+            }
             // hard
             if (difficulty == 3)
             {
-                Canvas.SetLeft(Building_1, 0);
-                Canvas.SetLeft(Building_2, 40);
-                Canvas.SetLeft(Building_3, 100);
-                Canvas.SetRight(Building_4, 0);
+                Console.WriteLine("Hard: Gamemode 3");
+                //for( int i = 0; i<)
+                Canvas.SetLeft(Buildings[0], 0);
+                Canvas.SetLeft(Buildings[1], 40);
+                Canvas.SetLeft(Buildings[2], 100);
+                Canvas.SetRight(Buildings[3], 0);
 
                 for (int i = 0; i < amountcards; i++)
                 {
                     Canvas.SetZIndex(moon, RandomValue(-1, 1));
                     Canvas.SetLeft(moon, RandomValue(20, 180));
-                    Canvas.SetLeft(Lantern, RandomValue(0, 80));
+                    Canvas.SetLeft(Lantern, RandomValue(10, 80));
 
+                    //all people zindex -1
                     ResetPeople();
-                    switch (i)
-                    {
-                        case 1:
+   
+                    int randomP1 = rand.Next(0, 10);
+                    int randomP2 = rand.Next(10, 20);
+                    int randomP3 = rand.Next(20, 31);
+                    Console.WriteLine("P1: " + randomP1 + " p2 " + randomP2 + " p3 " + randomP3);
 
-                            Canvas.SetZIndex(Person1, 4);
-                            Canvas.SetZIndex(Person14, 4);
-                            Canvas.SetZIndex(Person20, 4);
-                            Canvas.SetZIndex(Person32, 4);
-                            break;
-                        case 2:
-                            Canvas.SetZIndex(Person4, 4);
-                            Canvas.SetZIndex(Person12, 4);
-                            Canvas.SetZIndex(Person26, 4);
-                            Canvas.SetZIndex(Person30, 4);
-                            break;
-                        case 3:
-                            Canvas.SetZIndex(Person2, 4);
-                            Canvas.SetZIndex(Person11, 4);
-                            Canvas.SetZIndex(Person22, 4);
-                            Canvas.SetZIndex(Person28, 4);
-                            break;
-                        case 4:
-                            Canvas.SetZIndex(Person3, 4);
-                            Canvas.SetZIndex(Person10, 4);
-                            Canvas.SetZIndex(Person21, 4);
-                            Canvas.SetZIndex(Person29, 4);
-                            break;
-                    }
+                    Canvas.SetZIndex(People[randomP1], 1);
+                    Canvas.SetZIndex(People[randomP2], 1);
+                    Canvas.SetZIndex(People[randomP3], 1);
                     
-                }
 
+
+                    Rect rect = new Rect(Card.RenderSize);
+                    RenderTargetBitmap rtb = new RenderTargetBitmap((int)rect.Right,
+                      (int)rect.Bottom, 96d, 96d, System.Windows.Media.PixelFormats.Default);
+                    rtb.Render(Card);
+                    //endcode as PNG
+                    BitmapEncoder pngEncoder = new PngBitmapEncoder();
+                    pngEncoder.Frames.Add(BitmapFrame.Create(rtb));
+
+                    //save to memory stream
+                    System.IO.MemoryStream ms = new System.IO.MemoryStream();
+
+                    pngEncoder.Save(ms);
+                    ms.Close();
+                    //img moet hier komen:  C:\Users\lisan\Documents\GitHub\Memory\Memory\
+                    //img komt nu hier:     C:\Users\lisan\Documents\GitHub\Memory\Memory\bin\debug
+
+
+
+                    System.IO.File.WriteAllBytes("Card" + savedImg + ".png", ms.ToArray());
+                    savedImg++;
+                    Console.WriteLine("Done");
+
+                }
+                savedImg = 0;
             }
         }
 
         private void ResetPeople()
         {
-
-        }
-        private void CommandBinding_Executed(object sender, RoutedEventArgs e)
-        {
-            Rect rect = new Rect(Card.RenderSize);
-            RenderTargetBitmap rtb = new RenderTargetBitmap((int)rect.Right,
-              (int)rect.Bottom, 96d, 96d, System.Windows.Media.PixelFormats.Default);
-            rtb.Render(Card);
-            //endcode as PNG
-            BitmapEncoder pngEncoder = new PngBitmapEncoder();
-            pngEncoder.Frames.Add(BitmapFrame.Create(rtb));
-
-            //save to memory stream
-            System.IO.MemoryStream ms = new System.IO.MemoryStream();
-
-            pngEncoder.Save(ms);
-            ms.Close();
-            //img moet hier komen:  C:\Users\lisan\Documents\GitHub\Memory\Memory\
-            //img komt nu hier:     C:\Users\lisan\Documents\GitHub\Memory\Memory\bin\debug
-
+           for(var i = 0; i< People.Count; i++)
+           {
+               Canvas.SetZIndex(People[i], -1);
+           }
             
-
-            System.IO.File.WriteAllBytes("Card" + savedImg +".png" , ms.ToArray());
-            savedImg++;
-            Console.WriteLine("Done") ;
-
-           
+            
         }
+        
 
 
     }
