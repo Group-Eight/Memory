@@ -22,7 +22,7 @@ namespace Memory
     public partial class HighScores : Page
     {
 
-        JSONParser jsonParser = new JSONParser("/bin/Debug/HighScores.json");
+        JSONParser jsonParser = new JSONParser("HighScores.Json");
 
         List<JToken> names = new List<JToken>();
         List<JToken> points = new List<JToken>();
@@ -39,6 +39,8 @@ namespace Memory
 
             names = jsonParser.getTokens("name");
             points = jsonParser.getTokens("points");
+
+            setHighScores();
         }
 
         private void onClickBack(object sender, RoutedEventArgs e)
@@ -49,9 +51,12 @@ namespace Memory
 
         private void setHighScores()
         {
-            for (int i = 0; i >= names.Count; i++)
-            {
-            }
+            //for (int i = 0; i >= names.Count; i++)
+            //{
+
+            //    highScoreNames[i].Text = names[i].ToString();
+            //    highScorePoints[i].Text = points[i].ToString();
+            //}
 
             //HighScoreName1.Text = "1. Dani";
             //HighScorePoints1.Text = "∞ Punten";

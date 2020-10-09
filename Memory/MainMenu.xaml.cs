@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Newtonsoft.Json.Linq;
+using Microsoft.Win32;
 
 namespace Memory
 {
@@ -23,10 +24,12 @@ namespace Memory
     public partial class MainMenu : Page
     {
         StackPanel panel = new StackPanel();
+        private MediaPlayer mediaPlayer = new MediaPlayer();
 
         public MainMenu()
         {
             InitializeComponent();
+            playMusic();
             //this.setText();
             //this.Content = panel;
         }
@@ -36,6 +39,15 @@ namespace Memory
             //title.Content = "Hello World";
             //panel.Children.Add(title);
         }
+
+        private void playMusic()
+		{
+            if (!mediaPlayer.HasAudio)
+            {
+                mediaPlayer.Open(new Uri("../../music/Prophectical_-_Time.mp3", UriKind.Relative));
+			    mediaPlayer.Play();
+            }
+		}
 
         private void onClickPlay(object sender, RoutedEventArgs e)
         {

@@ -10,10 +10,10 @@
 
     <Grid Height="1080" Width="1920">
         <Grid.Background>
-            <ImageBrush ImageSource="/main_background.png" Stretch="UniformToFill"/>
+            <ImageBrush ImageSource="/23703754.jpg" Stretch="UniformToFill"/>
         </Grid.Background>
         <Grid Height="100" Margin="480,44,480,927">
-            <Label Content="Opties" FontSize="70" Foreground="White" HorizontalAlignment="Center">
+            <Label Content="Opties" FontSize="70" Foreground="Black" HorizontalAlignment="Center">
                 <Label.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="15"/>
@@ -25,7 +25,7 @@
             <Label></Label>
         </Grid>
         <Grid Height="100" Width="300" Margin="810,879,810,101">
-            <Button Background="Black" Foreground="White" FontSize="30" Click="onClickBack">
+            <Button Background="White" Foreground="Black" FontSize="30" Click="onClickBack">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="15"/>

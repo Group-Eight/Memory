@@ -10,10 +10,10 @@
 
     <Grid Height="1080" Width="1920">
         <Grid.Background>
-            <ImageBrush ImageSource="/main_background.png" Stretch="UniformToFill"/>
+            <ImageBrush ImageSource="/23703754.jpg" Stretch="UniformToFill"/>
         </Grid.Background>
         <Grid Height="100" Margin="480,44,480,927">
-            <Label Content="Kies een mode" FontSize="70" Foreground="White" HorizontalAlignment="Center">
+            <Label Content="Kies een mode" FontSize="70" Foreground="Black" HorizontalAlignment="Center">
                 <Label.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="15"/>
@@ -22,7 +22,7 @@
             </Label>
         </Grid>
         <Grid Height="100" Width="300" Margin="1197,298,423,682">
-            <Button Background="Black" Foreground="White" FontSize="30" Click="onClickPlayMultiplayer">
+            <Button Background="White" Foreground="Black" FontSize="30" Click="onClickPlayMultiplayer">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="15"/>
@@ -32,7 +32,7 @@
             </Button>
         </Grid>
         <Grid Height="100" Width="300" Margin="336,298,1284,682">
-            <Button Background="Black" Foreground="White" FontSize="30" Click="onClickPlayLocal">
+            <Button Background="White" Foreground="Black" FontSize="30" Click="onClickPlayLocal">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="15"/>

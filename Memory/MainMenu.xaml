@@ -10,10 +10,10 @@
 
     <Grid Height="1080" Width="1920">
         <Grid.Background>
-            <ImageBrush ImageSource="/main_background.png" Stretch="UniformToFill"/>
+            <ImageBrush ImageSource="/23703754.jpg" Stretch="UniformToFill"/>
         </Grid.Background>
         <Grid Margin="480,44,480,927">
-            <Label Content="Memory" FontSize="70" Foreground="White" HorizontalAlignment="Center" Margin="300,0">
+            <Label Content="Memory" FontSize="70" Foreground="Black" HorizontalAlignment="Center" Margin="300,0">
                 <Label.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="15"/>
@@ -22,7 +22,7 @@
             </Label>
         </Grid>
         <Grid Height="100" VerticalAlignment="Top" Width="300" RenderTransformOrigin="0.515,1.23" Margin="810,177,810,0">
-            <Button Background="Black" FontSize="30" Foreground="White" Click="onClickPlay">
+            <Button Background="White" FontSize="30" Foreground="Black" Click="onClickPlay">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="15"/>
@@ -32,7 +32,7 @@
             </Button>
         </Grid>
         <Grid Height="100" Width="300" Margin="810,355,810,625">
-            <Button Background="Black" FontSize="30" Foreground="White" Click="onClickOptions">
+            <Button Background="White" FontSize="30" Foreground="Black" Click="onClickOptions">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="15"/>
@@ -42,7 +42,7 @@
             </Button>
         </Grid>
         <Grid Height="100" Width="300" Margin="810,541,810,439">
-            <Button Background="Black" FontSize="30" Foreground="White" Click="onClickHighscore">
+            <Button Background="White" FontSize="30" Foreground="Black" Click="onClickHighscore">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="15"/>
@@ -52,7 +52,7 @@
             </Button>
         </Grid>
         <Grid Height="100" Width="300" Margin="810,879,810,101">
-            <Button Background="Black" FontSize="30" Foreground="White" Click="onClickQuit">
+            <Button Background="White" FontSize="30" Foreground="Black" Click="onClickQuit">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="15"/>
