@@ -11,13 +11,16 @@
     <Grid x:Name="GameGrid" 
           HorizontalAlignment="Stretch" 
           VerticalAlignment="Stretch" 
-          Margin="5"
+          Margin="99,204,97,95"
           ShowGridLines="True">
         <Grid.RowDefinitions>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
         </Grid.ColumnDefinitions>
-        <Button />
-        <Button Grid.Row="1" Grid.Column="1" FontSize="40px">Test</Button>
+        <Button HorizontalAlignment="Left" Margin="191,-143,0,0" VerticalAlignment="Top" Width="108" Height="55" Grid.Row="1" Grid.Column="1">
+            <Image Source="Pumbaaa.jpg" />
+        </Button>
+        <Button Content="Medium" HorizontalAlignment="Left" Margin="809,-143,0,0" VerticalAlignment="Top" Width="88" Height="55"/>
+        <Button Content="Hard" HorizontalAlignment="Left" Margin="1346,-143,0,0" VerticalAlignment="Top" Width="101" Height="55"/>
     </Grid>
 </Page>

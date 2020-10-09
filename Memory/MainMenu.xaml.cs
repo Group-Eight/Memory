@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Newtonsoft.Json.Linq;
 
 namespace Memory
 {
@@ -21,6 +23,8 @@ namespace Memory
     public partial class MainMenu : Page
     {
         //StackPanel panel = new StackPanel();
+        StackPanel panel = new StackPanel();
+
         public MainMenu()
         {
             InitializeComponent();
@@ -28,10 +32,31 @@ namespace Memory
             //this.Content = panel;
         }
 
-        //private void setText() {
-        //    Label title = new Label();
-        //    title.Content = "Hello World";
-        //    panel.Children.Add(title);
-        //}
+        private void setText() {
+            //Label title = new Label();
+            //title.Content = "Hello World";
+            //panel.Children.Add(title);
+        }
+
+        private void onClickPlay(object sender, RoutedEventArgs e)
+        {
+            Uri uri = new Uri("Play.xaml", UriKind.Relative);
+            this.NavigationService.Navigate(uri);
+        }
+
+        private void onClickHighscore(object sender, RoutedEventArgs e)
+        {
+            Uri uri = new Uri("HighScores.xaml", UriKind.Relative);
+            this.NavigationService.Navigate(uri);
+        }
+        private void onClickOptions(object sender, RoutedEventArgs e)
+        {
+            Uri uri = new Uri("Options.xaml", UriKind.Relative);
+            this.NavigationService.Navigate(uri);
+        }
+        private void onClickQuit(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }

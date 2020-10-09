@@ -20,18 +20,12 @@ namespace Memory
     /// </summary>
     public partial class PlayField : Page
     {
+        int flipped = 0;
+        List<Button> cardsClicked = new List<Button>();
         public PlayField()
         {
             InitializeComponent();
             this.setCards();
-        }
-
-
-        private void setText(string cards)
-        {
-            Label title = new Label();
-            title.Content = cards;
-            GameGrid.Children.Add(title);
         }
 
 
@@ -102,15 +96,23 @@ namespace Memory
             {
                 for (int y = 0; y < colls.Count; y++)
                 {
+                    // make string for future json
                     cards += rows[i];
                     cards += colls[y];
                     cards += " ";
+
+                    // make "cards" as buttons with id of the position
+                    Button btn = new Button();
+                    btn.Name = rows[i]+colls[y];
+                    btn.Click += showID;
+                    Grid.SetColumn(btn, y);
+                    Grid.SetRow(btn, i);
+                    GameGrid.Children.Add(btn);
                 }
                 cards += "\r";
             }
 
-            this.setText(cards);
-
+            // add rows and collumns
             for (int i = 0; i < rows.Count; i++)
             {
                 GameGrid.RowDefinitions.Add(new RowDefinition());
@@ -119,11 +121,31 @@ namespace Memory
             {
                 GameGrid.ColumnDefinitions.Add(new ColumnDefinition());
             }
-            //Label lbl = new Label();
-            //lbl.Content = "test";
+        }
 
-            //Grid.SetColumn(lbl, 2);
-            //GameGrid.Children.Add(lbl);
+        // Set text in button to the id/Name it has
+        private void showID(object sender, RoutedEventArgs e)
+        {
+            flipped++;
+            string id = (sender as Button).Name;
+            (sender as Button).Content = id;
+            cardsClicked.Add((sender as Button));
+
+            if(flipped == 2)
+            {
+
+            }
+
+            if (flipped == 3)
+            {
+                flipped = 1;
+
+                cardsClicked[0].Content = "";
+                cardsClicked[1].Content = "";
+
+                cardsClicked.Remove(cardsClicked[1]);
+                cardsClicked.Remove(cardsClicked[0]);
+            }
         }
     }
 }
