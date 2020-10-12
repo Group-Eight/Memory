@@ -51,26 +51,28 @@ namespace Memory
 
         private void setHighScores()
         {
+            int a = 0;
 
-            //for (int i = 0; i >= names.Count; i++)
-            //{
+            for (int i = 0; i < names.Count; i++)
+            {
+                highScoreNames[a].Text = names[i].ToString();
+                i++;
+                highScorePoints[a].Text = names[i].ToString();
+                a++;
+            }
 
-            //    highScoreNames[i].Text = names[i].ToString();
-            //    highScorePoints[i].Text = points[i].ToString();
-            //}
-
-            HighScoreName1.Text = "1. Dani";
-            HighScorePoints1.Text = "∞ Punten";
-            HighScoreName2.Text = "2. Lisanne";
-            HighScorePoints2.Text = "420 Punten";
-            HighScoreName3.Text = "3. Gaia";
-            HighScorePoints3.Text = "69 Punten";
-            HighScoreName4.Text = "4. Mathijs";
-            HighScorePoints4.Text = "56 Punten";
-            HighScoreName5.Text = "5. Mariska";
-            HighScorePoints5.Text = "10 Punten";
-            HighScoreName6.Text = "6. Niels";
-            HighScorePoints6.Text = "-3 Punten";
+            //HighScoreName1.Text = "1. Dani";
+            //HighScorePoints1.Text = "∞ Punten";
+            //HighScoreName2.Text = "2. Lisanne";
+            //HighScorePoints2.Text = "420 Punten";
+            //HighScoreName3.Text = "3. Gaia";
+            //HighScorePoints3.Text = "69 Punten";
+            //HighScoreName4.Text = "4. Mathijs";
+            //HighScorePoints4.Text = "56 Punten";
+            //HighScoreName5.Text = "5. Mariska";
+            //HighScorePoints5.Text = "10 Punten";
+            //HighScoreName6.Text = "6. Niels";
+            //HighScorePoints6.Text = "-3 Punten";
         }
 
     }
