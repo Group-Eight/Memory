@@ -26,17 +26,14 @@ namespace Memory
         Host host = new Host();
         Client client = new Client();
 
-        Server server = new Server();
+        StackPanel panel = new StackPanel();
 
         public Multiplayer() {
             InitializeComponent();
-            Thread newThread = new Thread(new ThreadStart( () => {
-                host.Execute();
-                Dispatcher.Run();
-            }));
-            newThread.SetApartmentState(ApartmentState.STA);
-            newThread.IsBackground = true;
-            newThread.Start();
+            this.host.creation();
+            Console.WriteLine(this.host.receive());
+            this.host.send("boodschap!");
+            this.host.CloseConnection();
         }
     }
 }

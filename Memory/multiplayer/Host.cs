@@ -4,59 +4,58 @@ using System.Resources;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using System.Windows.Controls;
 
 namespace Memory {
     class Host {
 
-        Server server = new Server();
+        Server server;
+
+        IPHostEntry ipHost;
+        IPAddress ipAddr;
+        IPEndPoint ipEndPoint;
+
+        public Socket Listener { get; }
+
+        public Socket client { get; set; }
 
         public Host() {
             // Constructor
+            this.server = new Server();
+            this.ipHost = Dns.GetHostEntry(Dns.GetHostName());
+            this.ipAddr = ipHost.AddressList[0];
+            this.ipEndPoint = new IPEndPoint(ipAddr, 11111);
+
+            Listener = new Socket(this.ipAddr.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
         }
-        
-        public void Execute() {
-            // Configuration for connection.
-            // Get IP address of host
-            IPHostEntry ipHost = Dns.GetHostEntry(Dns.GetHostName());
-            // Grab the first IP address
-            IPAddress ipAddr = ipHost.AddressList[0];
-            // Get the IP & Port
-            IPEndPoint ipEndPoint = new IPEndPoint(ipAddr, 11111);
 
-            // Create a socket with the given configuration
-            Socket listener = new Socket(ipAddr.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
-
+        public bool creation() {
             try {
-                // Bind the IP & Port with the listener socket
-                listener.Bind(ipEndPoint);
-                listener.Listen(10);
-                while (true) {
-                    Console.WriteLine("Waiting for connection!");
+                Listener.Bind(this.ipEndPoint);
+                Listener.Listen(10);
+            } catch (Exception e) { return false; }
+            return true;
+        }
 
-                    // Accept the clients connection
-                    Socket client = listener.Accept();
+        public string receive() {
+            string data = null;
+            this.client = Listener.Accept();
+            while (true) {
+                data += this.server.receiveMessage(this.client);
+                if (data.IndexOf("<EOF>") >= -1) break;
+            }
+            this.client.Close();
+            return data;
+        }
 
-                    // Gameplay here 
-                    // ---------------------
+        public void send(string message) {
+            this.client = Listener.Accept();
+            this.server.sendMessage(this.client, message);
+            this.client.Close();
+        }
 
-                    // Variables for the receiving message
-                    string data = null;
-
-                    while (true) {
-                        data += server.receiveMessage(client);
-                        if (data.IndexOf("<EOF>") >= -1) { break; }
-                    }
-
-                    // Write the message to the console - Debug reasons
-                    Console.WriteLine("Message received -> {0}", data);
-
-                    // Send the message as bytes.
-                    server.sendMessage(client ,"Boodschap");
-
-                    //client.Shutdown(SocketShutdown.Both);
-                    //client.Close();
-                }
-            } catch (Exception e) { Console.WriteLine(e.ToString()); }
+        public void CloseConnection() {
+            this.Listener.Close();
         }
     }
 }
