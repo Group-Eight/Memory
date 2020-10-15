@@ -37,6 +37,7 @@ namespace Memory
             List<string> rows = new List<string> { };
             List<string> colls = new List<string>{ };
 
+            // Amount of cards
             if (selected == "easy")
             {
                 amount_cards = 6;
@@ -55,6 +56,7 @@ namespace Memory
                 amount_cards++;
             }
 
+            // Add rows (Dynamic Grid)
             if ((amount_cards/2) <= 4)
             {
                 rows.Add("A");
@@ -126,6 +128,7 @@ namespace Memory
         // Set text in button to the id/Name it has
         private void showID(object sender, RoutedEventArgs e)
         {
+            // add Button/Card to list so you can check if they are the same
             flipped++;
             string id = (sender as Button).Name;
             (sender as Button).Content = id;
@@ -133,9 +136,10 @@ namespace Memory
 
             if(flipped == 2)
             {
-
+                // TODO: Check if cards are the same
             }
 
+            // Empty cards (testing)
             if (flipped == 3)
             {
                 flipped = 1;
