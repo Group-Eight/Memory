@@ -24,6 +24,7 @@ namespace Memory
         List<Path> People;
         List<Canvas> Buildings;
         List<int> BuildingWidths;
+        List<Rectangle> Backgrounds;
 
         private static Random rand = new Random();
 
@@ -34,11 +35,12 @@ namespace Memory
             People = new List<Path> { Person1, Person2, Person3, Person4, Person5, Person6, Person7, Person8, Person9, Person10, Person11, Person12, Person13, Person14, Person15, Person16, Person17, Person18, Person19, Person20, Person21, Person22, Person23, Person24, Person25, Person26, Person27, Person28, Person29, Person30, Person31, Person32 };
             Buildings = new List<Canvas> { Building_1, Building_2, Building_3, Building_4 };
             BuildingWidths = new List<int> { 50, 70, 90, 120 };
+            Backgrounds = new List<Rectangle> {Night, Sundown, Day };
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            SetCards(2, 10);
+            SetCards(1, 10);
 
         }
         public int RandomValue(int min, int max)
@@ -56,6 +58,30 @@ namespace Memory
                 Console.WriteLine("EZ: Gamemode 1");
                 for (int i = 0; i < amountcards; i++)
                 {
+                    int a = rand.Next(0, 3);
+                    switch (a)
+                    {
+                        case 0:
+                            Canvas.SetZIndex(Backgrounds[0], -1);
+                            Canvas.SetZIndex(Backgrounds[1], -3);
+                            Canvas.SetZIndex(Backgrounds[2], -3);
+                            Canvas.SetZIndex(Sky, -1);
+                            Canvas.SetLeft(moon, rand.Next(20, 180));
+                            break;
+                        case 1:
+                            Canvas.SetZIndex(Backgrounds[1], 0);
+                            Canvas.SetZIndex(Backgrounds[2], -3);
+                            Canvas.SetZIndex(Backgrounds[0], -3);
+                            Canvas.SetZIndex(Sky, -3);
+                            break;
+                        case 2:
+                            Canvas.SetZIndex(Backgrounds[2], 0);
+                            Canvas.SetZIndex(Backgrounds[0], -3);
+                            Canvas.SetZIndex(Backgrounds[1], -3);
+                            Canvas.SetZIndex(Sky, -3);
+                            break;
+                    }
+
 
                     Canvas[] MyRandomArray = Buildings.OrderBy(x => rand.Next()).ToArray();
                     for (var e = 0; e < Buildings.Count; e++)
@@ -132,8 +158,7 @@ namespace Memory
 
                     }
 
-                    /*Canvas.SetZIndex(moon, rand.Next(-1, 3));
-                    Canvas.SetLeft(moon, rand.Next(20, 180));
+                    /*
                     Canvas.SetLeft(Lantern1, rand.Next(0, 100 + i * 10));
                     Console.WriteLine(Canvas.GetLeft(Lantern1));
                     Canvas.SetLeft(Lantern2, rand.Next(0, 250));*/

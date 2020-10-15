@@ -20,23 +20,27 @@
 
 
             <!--Background-->
-            <Rectangle Fill="#000066" Canvas.Left="0" Canvas.Top="0" Width="256" Height="256" />
+            <Rectangle x:Name="Night" Panel.ZIndex="-3" Fill="#000066" Canvas.Left="0" Canvas.Top="0" Width="256" Height="256" />
+            <Rectangle x:Name="Sundown" Panel.ZIndex="-4" Fill="Orange" Canvas.Left="0" Canvas.Top="0" Width="256" Height="256" />
+            <Rectangle x:Name="Day" Panel.ZIndex="-5" Fill="LightBlue" Canvas.Left="0" Canvas.Top="0" Width="256" Height="256" />
+            <Canvas Panel.ZIndex="-1" x:Name="Sky">
+                <Ellipse x:Name="moon" Fill ="LightYellow"  Canvas.Left="21" Canvas.Top="20" Width="50" Height="50" />
+                <Ellipse Fill ="LightYellow"  Canvas.Left="97" Canvas.Top="23" Width="2" Height="2" />
+                <Ellipse Fill ="LightYellow"  Canvas.Left="141" Canvas.Top="30" Width="2" Height="2" />
+                <Ellipse Fill ="LightYellow"  Canvas.Left="123" Canvas.Top="63" Width="2" Height="2" />
+                <Ellipse Fill ="LightYellow"  Canvas.Left="155" Canvas.Top="93" Width="2" Height="2" />
+                <Ellipse Fill ="LightYellow"  Canvas.Left="165" Canvas.Top="10" Width="2" Height="2" />
+                <Ellipse Fill ="LightYellow"  Canvas.Left="114" Canvas.Top="86" Width="2" Height="2" />
+                <Ellipse Fill ="LightYellow"  Canvas.Left="21" Canvas.Top="10" Width="2" Height="2" />
+                <Ellipse Fill ="LightYellow"  Canvas.Left="73" Canvas.Top="106" Width="2" Height="2" />
+                <Ellipse Fill ="LightYellow"  Canvas.Left="25" Canvas.Top="75" Width="2" Height="2" />
+                <Ellipse Fill ="LightYellow"  Canvas.Left="101" Canvas.Top="129" Width="2" Height="2" />
+                <Ellipse Fill ="LightYellow"  Canvas.Left="82" Canvas.Top="57" Width="2" Height="2" />
+                <Ellipse Fill ="LightYellow"  Canvas.Left="229" Canvas.Top="23" Width="2" Height="2" />
+                <Ellipse Fill ="LightYellow"  Canvas.Left="244" Canvas.Top="6" Width="2" Height="2" />
+                <Ellipse Fill ="LightYellow"  Canvas.Left="200" Canvas.Top="39" Width="2" Height="2" />
+            </Canvas>
 
-            <Ellipse x:Name="moon" Fill ="LightYellow"  Canvas.Left="21" Canvas.Top="20" Width="50" Height="50" />
-            <Ellipse Fill ="LightYellow"  Canvas.Left="97" Canvas.Top="23" Width="2" Height="2" />
-            <Ellipse Fill ="LightYellow"  Canvas.Left="141" Canvas.Top="30" Width="2" Height="2" />
-            <Ellipse Fill ="LightYellow"  Canvas.Left="123" Canvas.Top="63" Width="2" Height="2" />
-            <Ellipse Fill ="LightYellow"  Canvas.Left="155" Canvas.Top="93" Width="2" Height="2" />
-            <Ellipse Fill ="LightYellow"  Canvas.Left="165" Canvas.Top="10" Width="2" Height="2" />
-            <Ellipse Fill ="LightYellow"  Canvas.Left="114" Canvas.Top="86" Width="2" Height="2" />
-            <Ellipse Fill ="LightYellow"  Canvas.Left="21" Canvas.Top="10" Width="2" Height="2" />
-            <Ellipse Fill ="LightYellow"  Canvas.Left="73" Canvas.Top="106" Width="2" Height="2" />
-            <Ellipse Fill ="LightYellow"  Canvas.Left="25" Canvas.Top="75" Width="2" Height="2" />
-            <Ellipse Fill ="LightYellow"  Canvas.Left="101" Canvas.Top="129" Width="2" Height="2" />
-            <Ellipse Fill ="LightYellow"  Canvas.Left="82" Canvas.Top="57" Width="2" Height="2" />
-            <Ellipse Fill ="LightYellow"  Canvas.Left="229" Canvas.Top="23" Width="2" Height="2" />
-            <Ellipse Fill ="LightYellow"  Canvas.Left="244" Canvas.Top="6" Width="2" Height="2" />
-            <Ellipse Fill ="LightYellow"  Canvas.Left="200" Canvas.Top="39" Width="2" Height="2" />
             <Canvas Panel.ZIndex="1" x:Name="Building_1" Background="#404040" Canvas.Bottom="0" Canvas.Left="0" Width="50" Height="170" >
                 <Canvas.RenderTransform>
                     <TranslateTransform X="0" Y="0"/>
@@ -86,10 +90,10 @@
 
 
                 <Rectangle Fill="Black"  Canvas.Left="5" Canvas.Bottom="50" Width="15" Height="15" />
-                <Path Panel.ZIndex="-1" x:Name="Person13" Fill="LightGray" StrokeThickness="1.3102" Data="m 43.277613 37.12818 c 3.243117 -3.853384 5.238882 -9.35822 5.238882 -15.413539 0 -11.835396 -7.733588 -21.46885801 -17.21347 -21.46885801 -9.479881 0 -17.213469 9.63346201 -17.213469 21.46885801 0 6.19294 2.1205 11.697776 5.363618 15.55116 -10.3530294 4.54149 -19.0844993 14.174952 -19.0844993 25.872727 0 0.275242 62.9913183 1.238588 62.9913183 0.688104 C 63.484729 51.715994 54.254318 41.532049 43.277613 37.12818 Z" Height="10.098" Canvas.Left="9.6" Stretch="Fill" Canvas.Top="90.602" Width="9.94"/>
+                <Path Panel.ZIndex="-1" x:Name="Person13" Fill="LightGray" StrokeThickness="1.3102" Data="m 43.277613 37.12818 c 3.243117 -3.853384 5.238882 -9.35822 5.238882 -15.413539 0 -11.835396 -7.733588 -21.46885801 -17.21347 -21.46885801 -9.479881 0 -17.213469 9.63346201 -17.213469 21.46885801 0 6.19294 2.1205 11.697776 5.363618 15.55116 -10.3530294 4.54149 -19.0844993 14.174952 -19.0844993 25.872727 0 0.275242 62.9913183 1.238588 62.9913183 0.688104 C 63.484729 51.715994 54.254318 41.532049 43.277613 37.12818 Z" Height="9" Canvas.Left="10.03" Stretch="Fill" Canvas.Top="91" Width="9.94"/>
 
                 <Rectangle Fill="Black"  Canvas.Left="25" Canvas.Bottom="50" Width="30" Height="15" />
-                <Path Panel.ZIndex="-1" x:Name="Person14" Fill="LightGray" StrokeThickness="1.3102" Data="m 43.277613 37.12818 c 3.243117 -3.853384 5.238882 -9.35822 5.238882 -15.413539 0 -11.835396 -7.733588 -21.46885801 -17.21347 -21.46885801 -9.479881 0 -17.213469 9.63346201 -17.213469 21.46885801 0 6.19294 2.1205 11.697776 5.363618 15.55116 -10.3530294 4.54149 -19.0844993 14.174952 -19.0844993 25.872727 0 0.275242 62.9913183 1.238588 62.9913183 0.688104 C 63.484729 51.715994 54.254318 41.532049 43.277613 37.12818 Z" Height="10.098" Canvas.Left="45.06" Stretch="Fill" Canvas.Top="90.551" Width="9.94"/>
+                <Path Panel.ZIndex="-1" x:Name="Person14" Fill="LightGray" StrokeThickness="1.3102" Data="m 43.277613 37.12818 c 3.243117 -3.853384 5.238882 -9.35822 5.238882 -15.413539 0 -11.835396 -7.733588 -21.46885801 -17.21347 -21.46885801 -9.479881 0 -17.213469 9.63346201 -17.213469 21.46885801 0 6.19294 2.1205 11.697776 5.363618 15.55116 -10.3530294 4.54149 -19.0844993 14.174952 -19.0844993 25.872727 0 0.275242 62.9913183 1.238588 62.9913183 0.688104 C 63.484729 51.715994 54.254318 41.532049 43.277613 37.12818 Z" Height="9" Canvas.Left="45.03" Stretch="Fill" Canvas.Top="91" Width="9.94"/>
 
 
                 <Rectangle Fill="Black"  Canvas.Left="5" Canvas.Bottom="75" Width="15" Height="15" />
