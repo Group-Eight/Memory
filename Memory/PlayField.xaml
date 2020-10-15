@@ -1,0 +1,24 @@
+﻿<Page x:Class="Memory.PlayField"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Memory"
+      mc:Ignorable="d" 
+      d:DesignHeight="1080" d:DesignWidth="1920"
+      Title="PlayField">
+
+    <Grid x:Name="GameGrid" 
+          HorizontalAlignment="Stretch" 
+          VerticalAlignment="Stretch" 
+          Margin="99,204,97,95"
+          ShowGridLines="True">
+        <Grid.RowDefinitions>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+        </Grid.ColumnDefinitions>
+        <Button HorizontalAlignment="Left" Margin="191,-143,0,0" VerticalAlignment="Top" Width="108" Height="55" Grid.Row="1" Grid.Column="1" />       
+        <Button Content="Medium" HorizontalAlignment="Left" Margin="809,-143,0,0" VerticalAlignment="Top" Width="88" Height="55"/>
+        <Button Content="Hard" HorizontalAlignment="Left" Margin="1346,-143,0,0" VerticalAlignment="Top" Width="101" Height="55"/>
+    </Grid>
+</Page>

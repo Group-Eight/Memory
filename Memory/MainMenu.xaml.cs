@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Newtonsoft.Json.Linq;
 
 namespace Memory
 {
@@ -20,39 +22,41 @@ namespace Memory
     /// </summary>
     public partial class MainMenu : Page
     {
+        //StackPanel panel = new StackPanel();
         StackPanel panel = new StackPanel();
+
         public MainMenu()
         {
             InitializeComponent();
-            this.setText();
-            this.setButton();
-            this.Content = panel;
+            //this.setText();
+            //this.Content = panel;
         }
 
         private void setText() {
-            Label title = new Label();
-            title.Content = "Hello World";
-            panel.Children.Add(title);
-        }
-        private void setButton()
-        {
-            Button button = new Button();
-            button.Content = "Hello World";
-            button.Width = 200;
-            button.Click += btn1Click;
-            panel.Children.Add(button);
-            
-        }
-        private void SetCards()
-        {
-            Image Card1 = new Image();
-            Card1.Source = new BitmapImage(new Uri("C:/Users/lisan/Documents/GitHub/Memory/Memory/bin/debug/logo.png"));
-        }
-        private void btn1Click(object sender, RoutedEventArgs e)
-        {
-            MemoryCard memorycard = new MemoryCard();
-            this.NavigationService.Navigate(memorycard);
+            //Label title = new Label();
+            //title.Content = "Hello World";
+            //panel.Children.Add(title);
         }
 
+        private void onClickPlay(object sender, RoutedEventArgs e)
+        {
+            Uri uri = new Uri("Play.xaml", UriKind.Relative);
+            this.NavigationService.Navigate(uri);
+        }
+
+        private void onClickHighscore(object sender, RoutedEventArgs e)
+        {
+            Uri uri = new Uri("HighScores.xaml", UriKind.Relative);
+            this.NavigationService.Navigate(uri);
+        }
+        private void onClickOptions(object sender, RoutedEventArgs e)
+        {
+            Uri uri = new Uri("Options.xaml", UriKind.Relative);
+            this.NavigationService.Navigate(uri);
+        }
+        private void onClickQuit(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }

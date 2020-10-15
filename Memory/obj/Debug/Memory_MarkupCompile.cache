@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\lisan\Documents\GitHub\Memory\Memory\obj\Debug\
+D:\Projecten - Stenden\Memory\Memory\obj\Debug\
 Memory
 none
 false
 DEBUG;TRACE
-C:\Users\lisan\Documents\GitHub\Memory\Memory\App.xaml
-3-766526333
+D:\Projecten - Stenden\Memory\Memory\App.xaml
+7-737476839
 
-71663972686
-13-1505183044
-MainMenu.xaml;MainWindow.xaml;MemoryCard.xaml;
+13-937662898
+14-1877906660
+HighScores.xaml;MainMenu.xaml;MainWindow.xaml;MemoryCard.xaml;PlayField.xaml;Options.xaml;Play.xaml;
 
 False
 
