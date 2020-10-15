@@ -25,3 +25,5 @@ D:\Projecten - Stenden\Memory\Memory\obj\Debug\Memory.csproj.CopyComplete
 D:\Projecten - Stenden\Memory\Memory\obj\Debug\Memory.exe
 D:\Projecten - Stenden\Memory\Memory\obj\Debug\Memory.pdb
 D:\Projecten - Stenden\Memory\Memory\obj\Debug\Memory.csprojAssemblyReference.cache
+D:\Projecten - Stenden\Memory\Memory\obj\Debug\MemoryCard.g.cs
+D:\Projecten - Stenden\Memory\Memory\obj\Debug\MemoryCard.baml

@@ -17,9 +17,7 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
         </Grid.ColumnDefinitions>
-        <Button HorizontalAlignment="Left" Margin="191,-143,0,0" VerticalAlignment="Top" Width="108" Height="55" Grid.Row="1" Grid.Column="1">
-            <Image Source="Pumbaaa.jpg" />
-        </Button>
+        <Button HorizontalAlignment="Left" Margin="191,-143,0,0" VerticalAlignment="Top" Width="108" Height="55" Grid.Row="1" Grid.Column="1" />       
         <Button Content="Medium" HorizontalAlignment="Left" Margin="809,-143,0,0" VerticalAlignment="Top" Width="88" Height="55"/>
         <Button Content="Hard" HorizontalAlignment="Left" Margin="1346,-143,0,0" VerticalAlignment="Top" Width="101" Height="55"/>
     </Grid>
