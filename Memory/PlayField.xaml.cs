@@ -21,18 +21,26 @@ namespace Memory
     public partial class PlayField : Page
     {
         int flipped = 0;
+        List<Button> allCards = new List<Button>();
         List<Button> cardsClicked = new List<Button>();
+        List<int> cardsGenerated = new List<int>();
+        Random random = new Random();
+        string cards = "";
+
+
+
         public PlayField()
         {
+            
             InitializeComponent();
             this.setCards();
+  
         }
 
 
         private void setCards()
         {
             int amount_cards = 0;
-            string cards = "";
             string selected = "hard";
             List<string> rows = new List<string> { };
             List<string> colls = new List<string>{ };
@@ -109,6 +117,17 @@ namespace Memory
                     btn.Click += showID;
                     Grid.SetColumn(btn, y);
                     Grid.SetRow(btn, i);
+
+                    // Adding random image to button
+                    int RandomNumber = random.Next(0, (amount_cards/2));
+                    // Only have 2 of each card
+                    do
+                    {
+                        RandomNumber = random.Next(0, (amount_cards / 2));
+
+                    } while (cardsGenerated.Count(x => x == RandomNumber) == 2);
+                    cardsGenerated.Add(RandomNumber);
+                    allCards.Add(btn);
                     GameGrid.Children.Add(btn);
                 }
                 cards += "\r";
@@ -128,18 +147,48 @@ namespace Memory
         // Set text in button to the id/Name it has
         private void showID(object sender, RoutedEventArgs e)
         {
-            // add Button/Card to list so you can check if they are the same
             flipped++;
+            // add Button/Card to list so you can check if they are the same
             string id = (sender as Button).Name;
-            (sender as Button).Content = id;
+
+            int test = allCards.IndexOf(sender as Button);
+
+            string path = System.Reflection.Assembly.GetExecutingAssembly().Location.Replace("Memory.exe", "") + "Card" + cardsGenerated[test].ToString() + ".png";
+            Image img = new Image();
+            img.Source = new BitmapImage(new Uri(path));
+
+            (sender as Button).Content = img;
+
             cardsClicked.Add((sender as Button));
 
+            // Check if cards are the same
             if(flipped == 2)
             {
-                // TODO: Check if cards are the same
+                if (id == cardsClicked[0].Name)
+                {
+                    flipped--;
+                    if (cardsClicked.Count == 2)
+                    {
+                        cardsClicked.Remove(cardsClicked[1]);
+                    }
+                }
+                if (cardsClicked.Count == 2)
+                {
+                    if (((Image)cardsClicked[0].Content).Source.ToString() == ((Image)cardsClicked[1].Content).Source.ToString())
+                    {
+                        Console.WriteLine("Correct");
+                        GameGrid.Children.Remove(cardsClicked[1]);
+                        GameGrid.Children.Remove(cardsClicked[0]);
+
+                        /*
+                         * 
+                         * Calculate the points here
+                         * 
+                         */
+                    }
+                }
             }
 
-            // Empty cards (testing)
             if (flipped == 3)
             {
                 flipped = 1;
@@ -149,6 +198,7 @@ namespace Memory
 
                 cardsClicked.Remove(cardsClicked[1]);
                 cardsClicked.Remove(cardsClicked[0]);
+
             }
         }
     }

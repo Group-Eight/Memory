@@ -39,9 +39,11 @@ namespace Memory
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            SetCards(1, 10);
-
+        {   //       mode, amount cards
+            SetCards(1, 20);
+            // go to gaia grid
+            Uri uri = new Uri("PlayField.xaml", UriKind.Relative);
+            this.NavigationService.Navigate(uri);
         }
         public int RandomValue(int min, int max)
         {

@@ -27,3 +27,4 @@ D:\Projecten - Stenden\Memory\Memory\obj\Debug\Memory.pdb
 D:\Projecten - Stenden\Memory\Memory\obj\Debug\Memory.csprojAssemblyReference.cache
 D:\Projecten - Stenden\Memory\Memory\obj\Debug\MemoryCard.g.cs
 D:\Projecten - Stenden\Memory\Memory\obj\Debug\MemoryCard.baml
+D:\Projecten - Stenden\Memory\Memory\obj\Debug\GeneratedInternalTypeHelper.g.cs
