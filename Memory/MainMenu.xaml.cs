@@ -29,7 +29,7 @@ namespace Memory
         public MainMenu()
         {
             InitializeComponent();
-            playMusic();
+            //playMusic();
             //this.setText();
             //this.Content = panel;
         }

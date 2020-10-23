@@ -20,9 +20,15 @@ namespace Memory
     /// </summary>
     public partial class MainWindow : NavigationWindow
     {
+
+        private MediaPlayer sceneMusic = new MediaPlayer();
+
         public MainWindow()
         {
             InitializeComponent();
+            sceneMusic.Open(new Uri("../../music/Prophectical_-_Time.mp3", UriKind.Relative));
+			sceneMusic.Play();
+            Console.WriteLine(((MainWindow)this).CurrentSource);
         }
     }
 }

@@ -137,5 +137,23 @@
   <ItemGroup>
     <Folder Include="music\" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\playicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\quiticon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\optionsicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\highscoreicon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\multiplayericon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\localicon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

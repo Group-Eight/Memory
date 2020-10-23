@@ -30,6 +30,7 @@
                 </Button.Resources>
                 Multiplayer
             </Button>
+            <Image Source="/images/multiplayericon.png" Margin="-54,16,160,18" />
         </Grid>
         <Grid Height="100" Width="300" Margin="336,298,1284,682">
             <Button Background="White" Foreground="Black" FontSize="30" Click="onClickPlayLocal">
@@ -40,6 +41,7 @@
                 </Button.Resources>
                 Local
             </Button>
+            <Image Source="/images/localicon.png" Margin="-54,16,160,18" />
         </Grid>
         <StackPanel Margin="336,444,1284,549">
             <ComboBox FontSize="30" Height="54">
@@ -48,5 +50,25 @@
                 <ComboBoxItem FontSize="30">Hard</ComboBoxItem>
             </ComboBox>
         </StackPanel>
+        <Grid Height="100" Width="300" Margin="810,879,810,101">
+            <Button Background="White" Foreground="Black" FontSize="30" Click="onClickBack">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="15"/>
+                    </Style>
+                </Button.Resources>
+                Back
+            </Button>
+            <Image Source="/images/playicon.png" Margin="-90,0,90,0" RenderTransformOrigin="0.5,0.5" >
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180.004"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+        </Grid>
     </Grid>
 </Page>
