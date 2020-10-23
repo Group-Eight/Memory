@@ -55,9 +55,17 @@ namespace Memory
 
             for (int i = 0; i < names.Count; i++)
             {
-                highScoreNames[a].Text = names[i].ToString();
+                string[] names1 = names[i].ToString().Split('"');
+                string name = names1[3];
+
+                highScoreNames[a].Text = name;
                 i++;
-                highScorePoints[a].Text = names[i].ToString();
+
+                char[] delimeters = { '"' , ':' };
+                string[] points1 = names[i].ToString().Split(delimeters);
+                string point = points1[3];
+
+                highScorePoints[a].Text = point;
                 a++;
             }
         }

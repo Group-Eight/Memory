@@ -39,7 +39,7 @@
                         <Setter Property="CornerRadius" Value="15"/>
                     </Style>
                 </Button.Resources>
-                Local
+                Co-op
             </Button>
             <Image Source="/images/localicon.png" Margin="-54,16,160,18" />
         </Grid>
