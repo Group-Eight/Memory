@@ -41,7 +41,7 @@ namespace Memory
         private void setCards()
         {
             int amount_cards = 0;
-            string selected = "hard";
+            string selected = "Hard";
             List<string> rows = new List<string> { };
             List<string> colls = new List<string>{ };
 
