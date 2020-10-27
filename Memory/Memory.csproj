@@ -64,6 +64,7 @@
     </Page>
     <Compile Include="PowerUps.xaml.cs">
       <DependentUpon>PowerUps.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MemoryCard.xaml.cs">
       <DependentUpon>MemoryCard.xaml</DependentUpon>
     </Compile>
