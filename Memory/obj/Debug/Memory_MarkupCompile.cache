@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\mathi\Documents\temp\Memory\Memory\obj\Debug\
+D:\Projecten - Stenden\Memory\Memory\obj\Debug\
 Memory
 none
 false
 DEBUG;TRACE
-C:\Users\mathi\Documents\temp\Memory\Memory\App.xaml
-51619590668
+D:\Projecten - Stenden\Memory\Memory\App.xaml
+7-737476839
 
-10-848870851
-14-1005533961
-HighScores.xaml;MainMenu.xaml;MainWindow.xaml;Options.xaml;Play.xaml;
+13-937662898
+14-1877906660
+HighScores.xaml;MainMenu.xaml;MainWindow.xaml;MemoryCard.xaml;PlayField.xaml;Options.xaml;Play.xaml;
 
-True
+False
 

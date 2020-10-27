@@ -22,6 +22,7 @@ namespace Memory
     /// </summary>
     public partial class MainMenu : Page
     {
+        //StackPanel panel = new StackPanel();
         StackPanel panel = new StackPanel();
 
         public MainMenu()
