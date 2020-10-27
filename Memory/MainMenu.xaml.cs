@@ -23,6 +23,7 @@ namespace Memory
     /// </summary>
     public partial class MainMenu : Page
     {
+        //StackPanel panel = new StackPanel();
         StackPanel panel = new StackPanel();
         private MediaPlayer mediaPlayer = new MediaPlayer();
 
