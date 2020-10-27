@@ -149,6 +149,17 @@ namespace Memory
         private void showID(object sender, RoutedEventArgs e)
         {
             flipped++;
+            if (flipped == 3)
+            {
+                flipped = 1;
+
+                cardsClicked[0].Content = "";
+                cardsClicked[1].Content = "";
+
+                cardsClicked.Remove(cardsClicked[1]);
+                cardsClicked.Remove(cardsClicked[0]);
+
+            }
             // add Button/Card to list so you can check if they are the same
             string id = (sender as Button).Name;
 
@@ -188,18 +199,6 @@ namespace Memory
                          */
                     }
                 }
-            }
-
-            if (flipped == 3)
-            {
-                flipped = 1;
-
-                cardsClicked[0].Content = "";
-                cardsClicked[1].Content = "";
-
-                cardsClicked.Remove(cardsClicked[1]);
-                cardsClicked.Remove(cardsClicked[0]);
-
             }
         }
     }

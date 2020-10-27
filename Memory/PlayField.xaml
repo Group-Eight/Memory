@@ -11,8 +11,7 @@
     <Grid x:Name="GameGrid" 
           HorizontalAlignment="Stretch" 
           VerticalAlignment="Stretch" 
-          Margin="99,204,97,95"
-          ShowGridLines="True">
+          Margin="99,204,97,95">
         <Grid.RowDefinitions>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
