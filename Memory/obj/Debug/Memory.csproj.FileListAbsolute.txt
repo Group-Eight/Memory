@@ -27,7 +27,6 @@ D:\Projecten - Stenden\Memory\Memory\obj\Debug\Memory.pdb
 D:\Projecten - Stenden\Memory\Memory\obj\Debug\Memory.csprojAssemblyReference.cache
 D:\Projecten - Stenden\Memory\Memory\obj\Debug\MemoryCard.g.cs
 D:\Projecten - Stenden\Memory\Memory\obj\Debug\MemoryCard.baml
-D:\Projecten - Stenden\Memory\Memory\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\lisan\Documents\GitHub\Memory\Memory\bin\Debug\Memory.exe.config
 C:\Users\lisan\Documents\GitHub\Memory\Memory\bin\Debug\Memory.exe
 C:\Users\lisan\Documents\GitHub\Memory\Memory\bin\Debug\Memory.pdb
