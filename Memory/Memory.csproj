@@ -62,6 +62,9 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Compile Include="PowerUps.xaml.cs">
+      <DependentUpon>PowerUps.xaml</DependentUpon>
+    </Compile>
     <Compile Include="source\JSONParser.cs" />
     <Compile Include="source\JSONWriter.cs" />
     <Page Include="MainMenu.xaml">
@@ -91,6 +94,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Play.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PowerUps.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
