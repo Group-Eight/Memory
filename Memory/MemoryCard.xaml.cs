@@ -35,14 +35,19 @@ namespace Memory
             People = new List<Path> { Person1, Person2, Person3, Person4, Person5, Person6, Person7, Person8, Person9, Person10, Person11, Person12, Person13, Person14, Person15, Person16, Person17, Person18, Person19, Person20, Person21, Person22, Person23, Person24, Person25, Person26, Person27, Person28, Person29, Person30, Person31, Person32 };
             Buildings = new List<Canvas> { Building_1, Building_2, Building_3, Building_4 };
             BuildingWidths = new List<int> { 50, 70, 90, 120 };
-            Backgrounds = new List<Rectangle> { Night, Sundown, Day };
+            //Backgrounds = new List<Rectangle> { Night, Sundown, Day , Red };
 
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {   //       mode, amount cards
-            SetCards(1, 20);
+            int x = 20;
+            SetCards(3, x);
             // go to gaia grid
+           
+            //string uri = string.Format("/PlayField.xaml?x={1}", x);
+            //Frame.Navigate(typeof(PlayField), new Uri(uri, UriKind.Relative));
+
             Uri uri = new Uri("PlayField.xaml", UriKind.Relative);
             this.NavigationService.Navigate(uri);
         }
@@ -61,43 +66,41 @@ namespace Memory
                 Console.WriteLine("EZ: Gamemode 1");
                 for (int i = 0; i < amountcards; i++)
                 {
-                    int a = rand.Next(0, 3);
+                    int a = rand.Next(0, 4);
                     switch (a)
                     {
                         case 0:
-                            Canvas.SetZIndex(Backgrounds[0], -2);
-                            Canvas.SetZIndex(Backgrounds[1], -3);
-                            Canvas.SetZIndex(Backgrounds[2], -3);
+                            Backgroundo.Fill = Brushes.DarkBlue;
                             Canvas.SetZIndex(Sky, -1);
                             Canvas.SetZIndex(Sun, -3);
                             Canvas.SetLeft(moon, rand.Next(20, 180));
                             break;
                         case 1:
-                            Canvas.SetZIndex(Backgrounds[1], -2);
-                            Canvas.SetZIndex(Backgrounds[2], -3);
-                            Canvas.SetZIndex(Backgrounds[0], -3);
+                            Backgroundo.Fill = Brushes.Orange;
                             Canvas.SetZIndex(Sun, -3);
                             Canvas.SetZIndex(Sky, -3);
                             break;
                         case 2:
-                            Canvas.SetZIndex(Backgrounds[2], -2);
-                            Canvas.SetZIndex(Backgrounds[0], -3);
-                            Canvas.SetZIndex(Backgrounds[1], -3);
+                            Backgroundo.Fill = Brushes.OrangeRed;
+                            Canvas.SetZIndex(Sky, -3);
+                            Canvas.SetZIndex(Sun, -3);
+                            Canvas.SetLeft(Sun, rand.Next(20, 180));
+                            break;
+                        case 3:
+                            Backgroundo.Fill = Brushes.LightBlue;
                             Canvas.SetZIndex(Sky, -3);
                             Canvas.SetZIndex(Sun, -1);
                             Canvas.SetLeft(Sun, rand.Next(20, 180));
                             break;
                     }
+                    Brush brush = new SolidColorBrush(Color.FromRgb((byte)rand.Next(1, 255), (byte)rand.Next(1, 255), (byte)rand.Next(1, 233)));
+                    Carbody.Fill = brush;
 
-                    Canvas.SetLeft(Cloud1, rand.Next(0, 150));
-                    Canvas.SetLeft(Cloud2, rand.Next(0, 150));
-                    Canvas.SetTop(Cloud1, rand.Next(0, 100));
-                    Canvas.SetTop(Cloud2, rand.Next(0, 100));
+                    detailPlacement();
 
                     Canvas[] MyRandomArray = Buildings.OrderBy(x => rand.Next()).ToArray();
                     for (var e = 0; e < Buildings.Count; e++)
                     {
-                        //set 1 house left and one right
                         Canvas.SetLeft(MyRandomArray[0], 0);
 
                         if (MyRandomArray[1] == Building_1) { Canvas.SetLeft(MyRandomArray[1], rand.Next(BuildingWidths[0] - 10, BuildingWidths[0] + 10)); }
@@ -108,7 +111,7 @@ namespace Memory
                         if (MyRandomArray[2] == Building_1) { Canvas.SetLeft(MyRandomArray[2], rand.Next(BuildingWidths[0] - 10 + 40, BuildingWidths[0] + 60)); }
                         if (MyRandomArray[2] == Building_2) { Canvas.SetLeft(MyRandomArray[2], rand.Next(BuildingWidths[1] - 10 + 40, BuildingWidths[1] + 60)); }
                         if (MyRandomArray[2] == Building_3) { Canvas.SetLeft(MyRandomArray[2], rand.Next(BuildingWidths[2] - 10 + 40, BuildingWidths[2] + 60)); }
-                        if (MyRandomArray[2] == Building_4) { Canvas.SetLeft(MyRandomArray[2], rand.Next(BuildingWidths[3] - 10 + 10, BuildingWidths[3] + 20)); }
+                        if (MyRandomArray[2] == Building_4) { Canvas.SetLeft(MyRandomArray[2], rand.Next(BuildingWidths[3] - 10 + 10, BuildingWidths[3] + 10)); }
 
 
                         if (MyRandomArray[3] == Building_1) { Canvas.SetLeft(MyRandomArray[3], 256 - 50); }
@@ -117,14 +120,9 @@ namespace Memory
                         if (MyRandomArray[3] == Building_4) { Canvas.SetLeft(MyRandomArray[3], 256 - 120); }
 
                     }
-                    Canvas.SetLeft(Lantern1, rand.Next(0, 100 + i * 10));
-                    Canvas.SetLeft(Lantern2, rand.Next(0, 250));
-
                     SaveCanvasAsPng();
-
                 }
                 savedImg = 0;
-
             }
             // medium
             if (difficulty == 2)
@@ -134,91 +132,45 @@ namespace Memory
                 for (int i = 0; i < amountcards; i++)
                 {
 
+                    int a = rand.Next(1, 3);
+                    switch (a){
+                        case 1:
+                            Backgroundo.Fill = Brushes.LightBlue;
+                            break;
+                        case 2:
+                            Backgroundo.Fill = Brushes.DarkBlue;
+                            break;
+                    }
+
+                    Canvas.SetLeft(Car, rand.Next(0, 150));
+
                     Canvas[] MyRandomArray = Buildings.OrderBy(x => rand.Next()).ToArray();
                     for (var e = 0; e < Buildings.Count; e++)
                     {
-                        //set 1 house left and one right
                         Canvas.SetLeft(MyRandomArray[0], 0);
-                        Canvas.SetRight(MyRandomArray[3], 0);
 
-                        if (MyRandomArray[0] == Building_1)
-                        {
-                            Canvas.SetLeft(MyRandomArray[1], rand.Next(BuildingWidths[0] - 10, BuildingWidths[0] + 10));
-                            if (MyRandomArray[1] == Building_2)
-                            {
-                                Canvas.SetLeft(MyRandomArray[2], rand.Next(100, 110));
-                            }
-                            else if (MyRandomArray[1] == Building_3)
-                            {
-                                Canvas.SetLeft(MyRandomArray[2], rand.Next(130, 140));
-                            }
-                            else if (MyRandomArray[1] == Building_4)
-                            {
-                                Canvas.SetLeft(MyRandomArray[2], rand.Next(150, 160));
-                            }
+                        if (MyRandomArray[1] == Building_1) { Canvas.SetLeft(MyRandomArray[1], rand.Next(BuildingWidths[0] - 10, BuildingWidths[0] + 10)); }
+                        if (MyRandomArray[1] == Building_2) { Canvas.SetLeft(MyRandomArray[1], rand.Next(BuildingWidths[1] - 10, BuildingWidths[1] + 10)); }
+                        if (MyRandomArray[1] == Building_3) { Canvas.SetLeft(MyRandomArray[1], rand.Next(BuildingWidths[2] - 10, BuildingWidths[2] + 10)); }
+                        if (MyRandomArray[1] == Building_4) { Canvas.SetLeft(MyRandomArray[1], rand.Next(BuildingWidths[3] - 10, BuildingWidths[3] + 10)); }
 
-                        }
-                        else if (MyRandomArray[0] == Building_2)
-                        {
-                            Canvas.SetLeft(MyRandomArray[1], rand.Next(BuildingWidths[1] - 10, BuildingWidths[1] + 10));
-                            if (MyRandomArray[1] == Building_1)
-                            {
-                                Canvas.SetLeft(MyRandomArray[2], rand.Next(80, 90));
-                            }
-                            else if (MyRandomArray[1] == Building_3)
-                            {
-                                Canvas.SetLeft(MyRandomArray[2], rand.Next(140, 160));
-                            }
-                            else if (MyRandomArray[1] == Building_4)
-                            {
-                                Canvas.SetLeft(MyRandomArray[2], rand.Next(180, 190));
-                            }
-                        }
-                        else if (MyRandomArray[0] == Building_3)
-                        {
-                            Canvas.SetLeft(MyRandomArray[1], rand.Next(BuildingWidths[2] - 10, BuildingWidths[2] + 10));
-                            if (MyRandomArray[1] == Building_1)
-                            {
-                                Canvas.SetLeft(MyRandomArray[2], rand.Next(130, 140));
-                            }
-                            else if (MyRandomArray[1] == Building_2)
-                            {
-                                Canvas.SetLeft(MyRandomArray[2], rand.Next(150, 160));
-                            }
-                            else if (MyRandomArray[1] == Building_4)
-                            {
-                                Canvas.SetLeft(MyRandomArray[2], rand.Next(190, 200));
-                            }
-                        }
-                        else if (MyRandomArray[0] == Building_4)
-                        {
-                            Canvas.SetLeft(MyRandomArray[1], rand.Next(BuildingWidths[3] - 10, BuildingWidths[3] + 10));
-                            if (MyRandomArray[1] == Building_1)
-                            {
-                                Canvas.SetLeft(MyRandomArray[2], rand.Next(150, 160));
-                            }
-                            else if (MyRandomArray[1] == Building_2)
-                            {
-                                Canvas.SetLeft(MyRandomArray[2], rand.Next(160, 170));
-                            }
-                            else if (MyRandomArray[1] == Building_3)
-                            {
-                                Canvas.SetLeft(MyRandomArray[2], rand.Next(180, 190));
-                            }
-                        }
+                        if (MyRandomArray[2] == Building_1) { Canvas.SetLeft(MyRandomArray[2], rand.Next(BuildingWidths[0] - 10 + 40, BuildingWidths[0] + 60)); }
+                        if (MyRandomArray[2] == Building_2) { Canvas.SetLeft(MyRandomArray[2], rand.Next(BuildingWidths[1] - 10 + 40, BuildingWidths[1] + 60)); }
+                        if (MyRandomArray[2] == Building_3) { Canvas.SetLeft(MyRandomArray[2], rand.Next(BuildingWidths[2] - 10 + 40, BuildingWidths[2] + 60)); }
+                        if (MyRandomArray[2] == Building_4) { Canvas.SetLeft(MyRandomArray[2], rand.Next(BuildingWidths[3] - 10 + 10, BuildingWidths[3] + 10)); }
 
 
-
-
-
+                        if (MyRandomArray[3] == Building_1) { Canvas.SetLeft(MyRandomArray[3], 256 - 50); }
+                        if (MyRandomArray[3] == Building_2) { Canvas.SetLeft(MyRandomArray[3], 256 - 70); }
+                        if (MyRandomArray[3] == Building_3) { Canvas.SetLeft(MyRandomArray[3], 256 - 90); }
+                        if (MyRandomArray[3] == Building_4) { Canvas.SetLeft(MyRandomArray[3], 256 - 120); }
 
                     }
 
                     Canvas.SetZIndex(moon, rand.Next(-1, 3));
                     Canvas.SetLeft(moon, rand.Next(20, 180));
-                    Canvas.SetLeft(Lantern1, rand.Next(0, 100 + i * 10));
-                    Console.WriteLine(Canvas.GetLeft(Lantern1));
-                    Canvas.SetLeft(Lantern2, rand.Next(0, 250));
+
+                    detailPlacement();
 
                     //all people zindex -1
                     ResetPeople();
@@ -242,18 +194,19 @@ namespace Memory
             if (difficulty == 3)
             {
                 Console.WriteLine("Hard: Gamemode 3");
-                //for( int i = 0; i<)
+
+                Backgroundo.Fill = Brushes.LightBlue;
                 Canvas.SetLeft(Buildings[0], 0);
                 Canvas.SetLeft(Buildings[1], 40);
                 Canvas.SetLeft(Buildings[2], 100);
                 Canvas.SetRight(Buildings[3], 0);
-
+                
                 for (int i = 0; i < amountcards; i++)
                 {
                     Canvas.SetZIndex(moon, rand.Next(-1, 3));
                     Canvas.SetLeft(moon, rand.Next(20, 180));
-                    Canvas.SetLeft(Lantern1, rand.Next(0, 250));
-                    Canvas.SetLeft(Lantern2, rand.Next(0, 250));
+                    detailPlacement();
+
 
                     //all people zindex -1
                     ResetPeople();
@@ -280,6 +233,18 @@ namespace Memory
                 Canvas.SetZIndex(People[i], -1);
             }
         }
+
+        private void detailPlacement()
+        {
+            Canvas.SetLeft(Car, rand.Next(0, 150));
+            Canvas.SetLeft(Cloud1, rand.Next(0, 150));
+            Canvas.SetLeft(Cloud2, rand.Next(0, 150));
+            Canvas.SetTop(Cloud1, rand.Next(0, 100));
+            Canvas.SetTop(Cloud2, rand.Next(0, 100));
+        }
+
+
+
 
         private void SaveCanvasAsPng()
         {
