@@ -35,22 +35,22 @@ namespace Memory
             People = new List<Path> { Person1, Person2, Person3, Person4, Person5, Person6, Person7, Person8, Person9, Person10, Person11, Person12, Person13, Person14, Person15, Person16, Person17, Person18, Person19, Person20, Person21, Person22, Person23, Person24, Person25, Person26, Person27, Person28, Person29, Person30, Person31, Person32 };
             Buildings = new List<Canvas> { Building_1, Building_2, Building_3, Building_4 };
             BuildingWidths = new List<int> { 50, 70, 90, 120 };
-            //Backgrounds = new List<Rectangle> { Night, Sundown, Day , Red };
-
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
-        {   //       mode, amount cards
-            int x = 20;
-            SetCards(3, x);
-            // go to gaia grid
-           
-            //string uri = string.Format("/PlayField.xaml?x={1}", x);
-            //Frame.Navigate(typeof(PlayField), new Uri(uri, UriKind.Relative));
+        {   //mode, amount cards
+            int amountcards = 0;
+            if(App.difficulty == 1){amountcards = 3;}
+            if(App.difficulty == 2){amountcards = 12;}
+            if(App.difficulty == 3){amountcards = 20;}
 
+            SetCards(App.difficulty, amountcards);
+
+            // go to gaia gri
             Uri uri = new Uri("PlayField.xaml", UriKind.Relative);
             this.NavigationService.Navigate(uri);
         }
+
         public int RandomValue(int min, int max)
         {
             Random random = new Random();
@@ -242,9 +242,6 @@ namespace Memory
             Canvas.SetTop(Cloud1, rand.Next(0, 100));
             Canvas.SetTop(Cloud2, rand.Next(0, 100));
         }
-
-
-
 
         private void SaveCanvasAsPng()
         {
