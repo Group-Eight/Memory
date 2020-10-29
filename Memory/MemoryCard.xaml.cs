@@ -38,7 +38,7 @@ namespace Memory
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
-<<<<<<< HEAD
+
         {   //       mode, amount cards
             int x = 20;
             SetCards(1, x);
@@ -46,15 +46,15 @@ namespace Memory
            
             //string uri = string.Format("/PlayField.xaml?x={1}", x);
             //Frame.Navigate(typeof(PlayField), new Uri(uri, UriKind.Relative));
-=======
-        {   //mode, amount cards
+
+            //mode, amount cards
             int amountcards = 0;
-            if(App.difficulty == 1){amountcards = 3;}
+            if(App.difficulty == 1){amountcards = 6;}
             if(App.difficulty == 2){amountcards = 12;}
             if(App.difficulty == 3){amountcards = 20;}
 
             SetCards(App.difficulty, amountcards);
->>>>>>> 821d3115b39b874bfc9f6d536ec2710c1c2c51f9
+
 
             // go to gaia gri
             Uri uri = new Uri("PlayField.xaml", UriKind.Relative);
