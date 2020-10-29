@@ -34,6 +34,7 @@ namespace Memory
         public PlayField()
         {
             InitializeComponent();
+<<<<<<< HEAD
             if (playerTurn == true)
             {
                 Turn.Text = "Player 1's turn";
@@ -43,6 +44,9 @@ namespace Memory
                 Turn.Text = "Player 2's turn";
             }
             
+=======
+
+>>>>>>> 821d3115b39b874bfc9f6d536ec2710c1c2c51f9
             this.setCards();
   
         }
@@ -51,20 +55,20 @@ namespace Memory
         private void setCards()
         {
             int amount_cards = 0;
-            string selected = "hard";
+            int selected = App.difficulty;
             List<string> rows = new List<string> { };
             List<string> colls = new List<string>{ };
 
             // Amount of cards
-            if (selected == "easy")
+            if (selected == 1)
             {
                 amount_cards = 6;
 
-            } else if (selected == "medium")
+            } else if (selected == 2)
             {
                 amount_cards = 24;
             }
-            else if (selected == "hard")
+            else if (selected == 3)
             {
                 amount_cards = 40;
             }
