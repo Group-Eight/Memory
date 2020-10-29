@@ -11,11 +11,7 @@ namespace Memory
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
-    /// 
-    
     public partial class App : Application
     {
-        //public static int amountcards = 3;
-        public static int difficulty = 1;
     }
 }
