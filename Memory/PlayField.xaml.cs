@@ -26,14 +26,27 @@ namespace Memory
         List<int> cardsGenerated = new List<int>();
         Random random = new Random();
         string cards = "";
-
+        bool playerTurn = true;
+        int firstPoints = 0;
+        int secondPoints = 0;
 
 
         public PlayField()
         {
-            
             InitializeComponent();
+<<<<<<< HEAD
+            if (playerTurn == true)
+            {
+                Turn.Text = "Player 1's turn";
+            }
+            else
+            {
+                Turn.Text = "Player 2's turn";
+            }
+            
+=======
 
+>>>>>>> 821d3115b39b874bfc9f6d536ec2710c1c2c51f9
             this.setCards();
   
         }
@@ -127,6 +140,7 @@ namespace Memory
                         RandomNumber = random.Next(0, (amount_cards / 2));
 
                     } while (cardsGenerated.Count(x => x == RandomNumber) == 2);
+
                     cardsGenerated.Add(RandomNumber);
                     allCards.Add(btn);
                     GameGrid.Children.Add(btn);
@@ -188,15 +202,35 @@ namespace Memory
                 {
                     if (((Image)cardsClicked[0].Content).Source.ToString() == ((Image)cardsClicked[1].Content).Source.ToString())
                     {
-                        Console.WriteLine("Correct");
                         GameGrid.Children.Remove(cardsClicked[1]);
                         GameGrid.Children.Remove(cardsClicked[0]);
 
+                        if(playerTurn = true)
+                        {
+                            firstPoints += 100;
+                        }
+                        else
+                        {
+                            secondPoints += 100;
+                        }
                         /*
                          * 
                          * Calculate the points here
                          * 
                          */
+                    }
+                    else
+                    {
+                        if (playerTurn == true)
+                        {
+                            playerTurn = false;
+                            Turn.Text = "Player 2's turn";
+                        }
+                        else
+                        {
+                            playerTurn = true;
+                            Turn.Text = "Player 1's turn";
+                        }
                     }
                 }
             }
