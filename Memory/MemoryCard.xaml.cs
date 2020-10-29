@@ -42,7 +42,7 @@ namespace Memory
         private void Button_Click(object sender, RoutedEventArgs e)
         {   //       mode, amount cards
             int x = 20;
-            SetCards(3, x);
+            SetCards(1, x);
             // go to gaia grid
            
             //string uri = string.Format("/PlayField.xaml?x={1}", x);

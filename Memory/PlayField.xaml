@@ -7,16 +7,18 @@
       mc:Ignorable="d" 
       d:DesignHeight="1080" d:DesignWidth="1920"
       Title="PlayField">
-
-    <Grid x:Name="GameGrid" 
-          HorizontalAlignment="Stretch" 
-          VerticalAlignment="Stretch" 
-          Margin="99,204,97,95">
-        <Grid.RowDefinitions>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-        </Grid.ColumnDefinitions>
-        
+    <Grid Height="1080" Width="1920">
+        <StackPanel x:Name="Test">
+            <TextBlock x:Name="Turn" FontSize="20" TextAlignment="Center" Text="Player 1's turn"/>
+        </StackPanel>
+        <Grid x:Name="GameGrid" 
+              HorizontalAlignment="Stretch" 
+              VerticalAlignment="Stretch" 
+              Margin="99,204,97,95">
+            <Grid.RowDefinitions>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+            </Grid.ColumnDefinitions>
+        </Grid>
     </Grid>
-    
 </Page>
