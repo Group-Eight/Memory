@@ -29,6 +29,8 @@ namespace Memory
         bool playerTurn = true;
         int firstPoints = 0;
         int secondPoints = 0;
+        int multiplier = 1;
+        int combo= 0;
 
 
         public PlayField()
@@ -58,7 +60,7 @@ namespace Memory
             // Amount of cards
             if (selected == "easy")
             {
-                amount_cards = 6;
+                amount_cards = 12;
 
             } else if (selected == "medium")
             {
@@ -75,7 +77,7 @@ namespace Memory
             }
 
             // Add rows (Dynamic Grid)
-            if ((amount_cards/2) <= 4)
+            if ((amount_cards/2) <= 6)
             {
                 rows.Add("A");
                 rows.Add("B");
@@ -85,7 +87,7 @@ namespace Memory
                     colls.Add(x.ToString());
                 }
             }
-            else if ((amount_cards / 2) > 4)
+            else if ((amount_cards / 2) > 6)
             {
                 if ((amount_cards % 3) != 0)
                 {
@@ -198,25 +200,31 @@ namespace Memory
                 {
                     if (((Image)cardsClicked[0].Content).Source.ToString() == ((Image)cardsClicked[1].Content).Source.ToString())
                     {
+                        combo++;
                         GameGrid.Children.Remove(cardsClicked[1]);
                         GameGrid.Children.Remove(cardsClicked[0]);
 
-                        if(playerTurn = true)
+                        if(playerTurn == true)
                         {
-                            firstPoints += 100;
+                            firstPoints += (100 * combo);
+                            Points_Player_1.Text = "Points Player 1: "+ firstPoints.ToString();
                         }
                         else
                         {
-                            secondPoints += 100;
+                            secondPoints += (100 * combo);
+                            Points_Player_2.Text = "Points Player 2: "+ secondPoints.ToString();
                         }
-                        /*
-                         * 
-                         * Calculate the points here
-                         * 
-                         */
+
+                        /*Calculate the combopoints here */
+                        if(combo > 1)
+                        {
+                            multiplier++;
+                        }
+                       
                     }
                     else
                     {
+                        combo = 0;
                         if (playerTurn == true)
                         {
                             playerTurn = false;
