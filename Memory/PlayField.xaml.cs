@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -29,12 +31,12 @@ namespace Memory
         bool playerTurn = true;
         int firstPoints = 0;
         int secondPoints = 0;
+        int combo = 0;
 
 
         public PlayField()
         {
             InitializeComponent();
-<<<<<<< HEAD
             if (playerTurn == true)
             {
                 Turn.Text = "Player 1's turn";
@@ -44,9 +46,6 @@ namespace Memory
                 Turn.Text = "Player 2's turn";
             }
             
-=======
-
->>>>>>> 821d3115b39b874bfc9f6d536ec2710c1c2c51f9
             this.setCards();
   
         }
@@ -62,7 +61,7 @@ namespace Memory
             // Amount of cards
             if (selected == 1)
             {
-                amount_cards = 6;
+                amount_cards = 12;
 
             } else if (selected == 2)
             {
@@ -79,7 +78,7 @@ namespace Memory
             }
 
             // Add rows (Dynamic Grid)
-            if ((amount_cards/2) <= 4)
+            if ((amount_cards/2) <= 6)
             {
                 rows.Add("A");
                 rows.Add("B");
@@ -89,7 +88,7 @@ namespace Memory
                     colls.Add(x.ToString());
                 }
             }
-            else if ((amount_cards / 2) > 4)
+            else if ((amount_cards / 2) > 6)
             {
                 if ((amount_cards % 3) != 0)
                 {
@@ -202,10 +201,11 @@ namespace Memory
                 {
                     if (((Image)cardsClicked[0].Content).Source.ToString() == ((Image)cardsClicked[1].Content).Source.ToString())
                     {
+                        combo++;
                         GameGrid.Children.Remove(cardsClicked[1]);
                         GameGrid.Children.Remove(cardsClicked[0]);
 
-                        if(playerTurn = true)
+                        if(playerTurn == true)
                         {
                             firstPoints += 100;
                         }
@@ -213,11 +213,6 @@ namespace Memory
                         {
                             secondPoints += 100;
                         }
-                        /*
-                         * 
-                         * Calculate the points here
-                         * 
-                         */
                     }
                     else
                     {
