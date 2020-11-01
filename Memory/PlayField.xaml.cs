@@ -31,7 +31,12 @@ namespace Memory
         bool playerTurn = true;
         int firstPoints = 0;
         int secondPoints = 0;
+<<<<<<< HEAD
         int combo = 0;
+=======
+        int multiplier = 1;
+        int combo= 0;
+>>>>>>> 41822350322230f7d63dfbb67b16f107bc6020d0
 
 
         public PlayField()
@@ -54,20 +59,20 @@ namespace Memory
         private void setCards()
         {
             int amount_cards = 0;
-            int selected = App.difficulty;
+            string selected = "hard";
             List<string> rows = new List<string> { };
             List<string> colls = new List<string>{ };
 
             // Amount of cards
-            if (selected == 1)
+            if (selected == "easy")
             {
                 amount_cards = 12;
 
-            } else if (selected == 2)
+            } else if (selected == "medium")
             {
                 amount_cards = 24;
             }
-            else if (selected == 3)
+            else if (selected == "hard")
             {
                 amount_cards = 40;
             }
@@ -207,15 +212,28 @@ namespace Memory
 
                         if(playerTurn == true)
                         {
-                            firstPoints += 100;
+                            firstPoints += (100 * combo);
+                            Points_Player_1.Text = "Points Player 1: "+ firstPoints.ToString();
                         }
                         else
                         {
-                            secondPoints += 100;
+                            secondPoints += (100 * combo);
+                            Points_Player_2.Text = "Points Player 2: "+ secondPoints.ToString();
                         }
+
+                        /*Calculate the combopoints here */
+                        if(combo > 1)
+                        {
+                            multiplier++;
+                        }
+<<<<<<< HEAD
+=======
+                       
+>>>>>>> 41822350322230f7d63dfbb67b16f107bc6020d0
                     }
                     else
                     {
+                        combo = 0;
                         if (playerTurn == true)
                         {
                             playerTurn = false;

@@ -16,19 +16,13 @@ using System.Windows.Shapes;
 namespace Memory
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for PowerUps.xaml
     /// </summary>
-    public partial class MainWindow : NavigationWindow
+    public partial class PowerUps : Page
     {
-
-        private MediaPlayer sceneMusic = new MediaPlayer();
-
-        public MainWindow()
+        public PowerUps()
         {
             InitializeComponent();
-            sceneMusic.Open(new Uri("../../music/Prophectical_-_Time.mp3", UriKind.Relative));
-			sceneMusic.Play();
-            Console.WriteLine(((MainWindow)this).CurrentSource);
         }
     }
 }

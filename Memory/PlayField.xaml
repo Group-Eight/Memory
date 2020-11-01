@@ -10,6 +10,8 @@
     <Grid>
         <StackPanel x:Name="Test">
             <TextBlock x:Name="Turn" FontSize="20" TextAlignment="Center" Text="Player 1's turn"/>
+			<TextBlock x:Name="Points_Player_1" FontSize="20" TextAlignment="Center" Text="Points Player 1"/>
+		    <TextBlock x:Name="Points_Player_2" FontSize="20" TextAlignment="Center" Text="Points Player 2"/>		
         </StackPanel>
         <Grid x:Name="GameGrid" 
               HorizontalAlignment="Stretch" 

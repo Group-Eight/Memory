@@ -10,13 +10,22 @@
 
     <Grid Height="1080" Width="1920">
         <Grid.Background>
-            <ImageBrush ImageSource="/main_background.png" Stretch="UniformToFill"/>
+            <ImageBrush ImageSource="/23703754.jpg" Stretch="UniformToFill"/>
         </Grid.Background>
+        <Grid Height="100" Margin="480,44,480,927">
+            <Label Content="Opties" FontSize="70" Foreground="Black" HorizontalAlignment="Center">
+                <Label.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="15"/>
+                    </Style>
+                </Label.Resources>
+            </Label>
+        </Grid>
         <Grid Height="100" Width="300" Margin="810,83,810,897">
             <Label></Label>
         </Grid>
         <Grid Height="100" Width="300" Margin="810,879,810,101">
-            <Button Background="Black" Foreground="White">
+            <Button Background="White" Foreground="Black" FontSize="30" Click="onClickBack">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="15"/>
@@ -24,6 +33,16 @@
                 </Button.Resources>
                 Back
             </Button>
+            <Image Source="/images/playicon.png" Margin="-98,0,98,0" RenderTransformOrigin="0.5,0.5" >
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180.004"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
         </Grid>
     </Grid>
 </Page>
