@@ -34,7 +34,7 @@ namespace Memory
         int combo = 0;
         int multiplier = 0;
         string save = "test.json";
-        string backCard = System.Reflection.Assembly.GetExecutingAssembly().Location.Replace("Memory.exe", "") + "BackCard.png";
+        string backCard = System.Reflection.Assembly.GetExecutingAssembly().Location.Replace("\\bin\\Debug\\Memory.exe", "") + "\\images\\BackCard.png";
         JSONWriter writer = new JSONWriter();
 
         public PlayField()
