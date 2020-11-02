@@ -1,12 +1,7 @@
 ﻿<NavigationWindow x:Class="Memory.MainWindow"
      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-<<<<<<< HEAD
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
      Title="Memory" Height="1080" Width="1920" Source="Mainmenu.xaml"
-=======
-
-     Title="Memory" Height="1080" Width="1920" Source="MemoryCard.xaml"
->>>>>>> 41822350322230f7d63dfbb67b16f107bc6020d0
-    WindowState="Maximized"
+     WindowState="Maximized"
      WindowStyle="None">
 </NavigationWindow>

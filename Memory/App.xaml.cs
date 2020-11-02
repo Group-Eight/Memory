@@ -14,5 +14,7 @@ namespace Memory
     public partial class App : Application
     {
         public static int difficulty = 1;
+        public static string playerOne = "Player 1";
+        public static string playerTwo = "Player 2";
     }
 }
