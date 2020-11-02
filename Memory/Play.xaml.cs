@@ -26,7 +26,11 @@ namespace Memory
         }
         private void onClickPlayLocal(object sender, RoutedEventArgs e)
         {
-            Uri uri = new Uri("PlayField.xaml", UriKind.Relative);
+            if(difficultyChoice.Text == "Easy") { App.difficulty = 1; }
+            if (difficultyChoice.Text == "Medium") { App.difficulty = 2; }
+            if (difficultyChoice.Text == "Hard") { App.difficulty = 3; }
+
+            Uri uri = new Uri("MemoryCard.xaml", UriKind.Relative);
             this.NavigationService.Navigate(uri);
         }
 

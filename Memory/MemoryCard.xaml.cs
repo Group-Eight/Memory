@@ -36,20 +36,29 @@ namespace Memory
             Buildings = new List<Canvas> { Building_1, Building_2, Building_3, Building_4 };
             BuildingWidths = new List<int> { 50, 70, 90, 120 };
             //Backgrounds = new List<Rectangle> { Night, Sundown, Day , Red };
-
+            if (App.difficulty == 1) { selectedDifficulty.Text = "Difficulty: Easy"; }
+            if (App.difficulty == 2) { selectedDifficulty.Text = "Difficulty: Medium"; }
+            if (App.difficulty == 3) { selectedDifficulty.Text = "Difficulty: Hard"; }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
-        {   //       mode, amount cards
-            int x = 20;
-            SetCards(3, x);
-            // go to gaia grid
-           
-            //string uri = string.Format("/PlayField.xaml?x={1}", x);
-            //Frame.Navigate(typeof(PlayField), new Uri(uri, UriKind.Relative));
+        {
+            if (InputPlayerOne.Text != "" && InputPlayerTwo.Text != "")
+            {
+                App.playerOne = InputPlayerOne.Text;
+                App.playerTwo = InputPlayerTwo.Text;
+                //mode, amount cards
+                int amountcards = 0;
+                if (App.difficulty == 1) { amountcards = 6; }
+                if (App.difficulty == 2) { amountcards = 12; }
+                if (App.difficulty == 3) { amountcards = 20; }
 
-            Uri uri = new Uri("PlayField.xaml", UriKind.Relative);
-            this.NavigationService.Navigate(uri);
+                SetCards(App.difficulty, amountcards);
+
+
+                Uri uri = new Uri("PlayField.xaml", UriKind.Relative);
+                this.NavigationService.Navigate(uri);
+            }
         }
         public int RandomValue(int min, int max)
         {
@@ -64,6 +73,7 @@ namespace Memory
             if (difficulty == 1)
             {
                 Console.WriteLine("EZ: Gamemode 1");
+                Console.WriteLine(amountcards);
                 for (int i = 0; i < amountcards; i++)
                 {
                     int a = rand.Next(0, 4);

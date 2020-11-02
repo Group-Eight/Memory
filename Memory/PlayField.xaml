@@ -7,16 +7,23 @@
       mc:Ignorable="d" 
       d:DesignHeight="1080" d:DesignWidth="1920"
       Title="PlayField">
-
-    <Grid x:Name="GameGrid" 
-          HorizontalAlignment="Stretch" 
-          VerticalAlignment="Stretch" 
-          Margin="99,204,97,95">
-        <Grid.RowDefinitions>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-        </Grid.ColumnDefinitions>
-        
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/23703754.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <StackPanel x:Name="Test">
+            <TextBlock x:Name="Turn" FontSize="40" FontWeight="Bold" TextAlignment="Center" Text="Player 1's turn"/>
+            <TextBlock x:Name="Points_Player_1" FontSize="30" TextAlignment="Center" Text="Points Player 1: 0"/>
+            <TextBlock x:Name="Points_Player_2" FontSize="30" TextAlignment="Center" Text="Points Player 2: 0"/>		
+        </StackPanel>
+        <Grid x:Name="GameGrid" 
+              HorizontalAlignment="Stretch" 
+              VerticalAlignment="Stretch" 
+              Margin="99,204,97,95">
+            <Grid.RowDefinitions>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+            </Grid.ColumnDefinitions>
+        </Grid>
     </Grid>
-    
 </Page>
