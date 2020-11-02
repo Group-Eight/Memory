@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -26,35 +28,59 @@ namespace Memory
         List<int> cardsGenerated = new List<int>();
         Random random = new Random();
         string cards = "";
-
-
+        bool playerTurn = true;
+        int firstPoints = 0;
+        int secondPoints = 0;
+        int combo = 0;
+        int multiplier = 0;
+        string save = "test.json";
+        string backCard = System.Reflection.Assembly.GetExecutingAssembly().Location.Replace("Memory.exe", "") + "BackCard.png";
+        JSONWriter writer = new JSONWriter();
 
         public PlayField()
         {
-            
             InitializeComponent();
+            // Create json file
+            writer.CreateFile(save);
+
+            Points_Player_1.Text = "Points " + App.playerOne + ": " + firstPoints;
+            Points_Player_2.Text = "Points " + App.playerTwo + ": " + secondPoints;
+
+            // Future JSON get the value of player's turn
+            if (playerTurn == true)
+            {
+                Turn.Text = App.playerOne + "'s turn";
+            }
+            else
+            {
+                Turn.Text = App.playerTwo + "'s turn";
+            }
+            
             this.setCards();
   
         }
 
+        private void Exit_game(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Application.Current.Shutdown();
+        }
 
         private void setCards()
         {
             int amount_cards = 0;
-            string selected = "hard";
             List<string> rows = new List<string> { };
             List<string> colls = new List<string>{ };
 
             // Amount of cards
-            if (selected == "easy")
+            if (App.difficulty == 1)
             {
-                amount_cards = 6;
+                amount_cards = 12;
 
-            } else if (selected == "medium")
+            } else if (App.difficulty == 2)
             {
                 amount_cards = 24;
             }
-            else if (selected == "hard")
+            else if (App.difficulty == 3)
             {
                 amount_cards = 40;
             }
@@ -65,7 +91,7 @@ namespace Memory
             }
 
             // Add rows (Dynamic Grid)
-            if ((amount_cards/2) <= 4)
+            if ((amount_cards/2) <= 6)
             {
                 rows.Add("A");
                 rows.Add("B");
@@ -75,7 +101,7 @@ namespace Memory
                     colls.Add(x.ToString());
                 }
             }
-            else if ((amount_cards / 2) > 4)
+            else if ((amount_cards / 2) > 6)
             {
                 if ((amount_cards % 3) != 0)
                 {
@@ -114,7 +140,29 @@ namespace Memory
                     // make "cards" as buttons with id of the position
                     Button btn = new Button();
                     btn.Name = rows[i]+colls[y];
-                    btn.Click += showID;
+                    btn.Click += flipCard;
+
+                    Image back = new Image();
+                    back.Source = new BitmapImage(new Uri(backCard));
+                    btn.Content = back;
+
+                    // Size of cards
+                    if (App.difficulty == 1)
+                    {
+                        btn.Height = 200;
+                        btn.Width = 200;
+                    }
+                    else if(App.difficulty == 2)
+                    {
+                        btn.Height = 150;
+                        btn.Width = 150;
+                    }
+                    else
+                    {
+                        btn.Height = 130;
+                        btn.Width = 130;
+                    }
+
                     Grid.SetColumn(btn, y);
                     Grid.SetRow(btn, i);
 
@@ -126,6 +174,7 @@ namespace Memory
                         RandomNumber = random.Next(0, (amount_cards / 2));
 
                     } while (cardsGenerated.Count(x => x == RandomNumber) == 2);
+
                     cardsGenerated.Add(RandomNumber);
                     allCards.Add(btn);
                     GameGrid.Children.Add(btn);
@@ -144,27 +193,33 @@ namespace Memory
             }
         }
 
-        // Set text in button to the id/Name it has
-        private void showID(object sender, RoutedEventArgs e)
+        // Show card
+        private void flipCard(object sender, RoutedEventArgs e)
         {
+
             flipped++;
+            // Flip cards back and remove them from list
             if (flipped == 3)
             {
                 flipped = 1;
 
-                cardsClicked[0].Content = "";
-                cardsClicked[1].Content = "";
+                Image back = new Image();
+                back.Source = new BitmapImage(new Uri(backCard));
+                cardsClicked[1].Content = back;
 
+                Image back2 = new Image();
+                back2.Source = new BitmapImage(new Uri(backCard));
+                cardsClicked[0].Content = back2;
+                
                 cardsClicked.Remove(cardsClicked[1]);
                 cardsClicked.Remove(cardsClicked[0]);
-
             }
             // add Button/Card to list so you can check if they are the same
             string id = (sender as Button).Name;
 
-            int test = allCards.IndexOf(sender as Button);
+            int indexCard = allCards.IndexOf(sender as Button);
 
-            string path = System.Reflection.Assembly.GetExecutingAssembly().Location.Replace("Memory.exe", "") + "Card" + cardsGenerated[test].ToString() + ".png";
+            string path = System.Reflection.Assembly.GetExecutingAssembly().Location.Replace("Memory.exe", "") + "Card" + cardsGenerated[indexCard].ToString() + ".png";
             Image img = new Image();
             img.Source = new BitmapImage(new Uri(path));
 
@@ -175,6 +230,7 @@ namespace Memory
             // Check if cards are the same
             if(flipped == 2)
             {
+                // If you click the same card twice it won't add the card to the list
                 if (id == cardsClicked[0].Name)
                 {
                     flipped--;
@@ -185,17 +241,69 @@ namespace Memory
                 }
                 if (cardsClicked.Count == 2)
                 {
+                    // Both cards are the same
                     if (((Image)cardsClicked[0].Content).Source.ToString() == ((Image)cardsClicked[1].Content).Source.ToString())
                     {
-                        Console.WriteLine("Correct");
+                        combo++;
+                        // 50 points extra per combo
+                        if(combo > 1)
+                        {
+                            multiplier += 50;
+                        }
                         GameGrid.Children.Remove(cardsClicked[1]);
                         GameGrid.Children.Remove(cardsClicked[0]);
 
-                        /*
-                         * 
-                         * Calculate the points here
-                         * 
-                         */
+                        // Give points to current player
+                        if(playerTurn == true)
+                        {
+                            firstPoints += (100 + multiplier);
+                            Points_Player_1.Text = "Points " + App.playerOne + ": "+ firstPoints.ToString();
+                        }
+                        else
+                        {
+                            secondPoints += (100 + multiplier);
+                            Points_Player_2.Text = "Points " + App.playerTwo + ": " + secondPoints.ToString();
+                        }
+
+                        // End game
+                        if (GameGrid.Children.Count == 0)
+                        {
+                            Button endExit = new Button();
+                            endExit.Content = "Exit";
+                            endExit.Click += new RoutedEventHandler(Exit_game);
+                            
+
+                            TextBlock endText = new TextBlock();
+                            endText.FontSize = 30;
+                            endExit.Height = 150;
+                            endExit.Width = 150;
+
+                            // Show winner
+                            if (firstPoints > secondPoints) { endText.Text = "Winner: " + App.playerOne + System.Environment.NewLine + "Points: " + firstPoints.ToString(); }
+                            else if (firstPoints == secondPoints) { endText.Text = "Tie " + System.Environment.NewLine + "Points: " + firstPoints.ToString(); }
+                            else { endText.Text = "Winner: " + App.playerTwo + System.Environment.NewLine + "Points: " + secondPoints.ToString(); }
+                            GameGrid.Children.Add(endText);
+
+                            Grid.SetColumn(endExit, 0);
+                            Grid.SetRow(endExit, 1);
+                            GameGrid.Children.Add(endExit);
+                        }
+                    }
+                    // if wrong change turn and reset the combo
+                    else
+                    {
+                        combo = 0;
+                        multiplier = 0;
+                        if (playerTurn == true)
+                        {
+                            playerTurn = false;
+                            Turn.Text = App.playerTwo + "'s turn";
+                        }
+                        else
+                        {
+                            playerTurn = true;
+                            Turn.Text = App.playerOne + "'s turn";
+                        }
                     }
                 }
             }

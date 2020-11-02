@@ -44,7 +44,7 @@
             <Image Source="/images/localicon.png" Margin="-54,16,160,18" />
         </Grid>
         <StackPanel Margin="336,444,1284,549">
-            <ComboBox FontSize="30" Height="54">
+            <ComboBox x:Name="difficultyChoice" FontSize="30" Height="54">
                 <ComboBoxItem IsSelected="True" FontSize="30">Easy</ComboBoxItem>
                 <ComboBoxItem FontSize="30">Medium</ComboBoxItem>
                 <ComboBoxItem FontSize="30">Hard</ComboBoxItem>
