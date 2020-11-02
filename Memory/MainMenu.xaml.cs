@@ -30,25 +30,15 @@ namespace Memory
         public MainMenu()
         {
             InitializeComponent();
-            //playMusic();
-            //this.setText();
-            //this.Content = panel;
         }
 
-        private void setText() {
-            //Label title = new Label();
-            //title.Content = "Hello World";
-            //panel.Children.Add(title);
-        }
-
-        private void playMusic()
-		{
+        private void playMusic() {
             if (!mediaPlayer.HasAudio)
             {
                 mediaPlayer.Open(new Uri("../../music/Prophectical_-_Time.mp3", UriKind.Relative));
 			    mediaPlayer.Play();
             }
-		}
+	}
 
         private void onClickPlay(object sender, RoutedEventArgs e)
         {

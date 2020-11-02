@@ -42,7 +42,7 @@ namespace Memory
 
         private void onClickPlayMultiplayer(object sender, RoutedEventArgs e)
         {
-            Uri uri = new Uri("MainMenu.xaml", UriKind.Relative);
+            Uri uri = new Uri("Multiplayer.xaml", UriKind.Relative);
             this.NavigationService.Navigate(uri);
         }
     }

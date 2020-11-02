@@ -4,3 +4,9 @@
 **/obj
 
 *.htm
+
+*.cs~
+*.cs.un~
+
+.*.swp
+.*.swo
