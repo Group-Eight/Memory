@@ -1,63 +1,48 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Resources;
 using System.Net;
 using System.Net.Sockets;
-using System.Text;
+using System.Runtime.Remoting.Messaging;
 
 namespace Memory {
     class Client {
 
         Server server = new Server();
 
+        IPHostEntry ipHost;
+        IPAddress ipAddr;
+        IPEndPoint ipEndPoint;
+
+        bool _turn = false;
+        public bool isTurn { get { return _turn; } set { _turn = value; } }
+
+        public Socket Sender { get; }
+
         public Client() {
-            // Constructor
+            this.ipHost = Dns.GetHostEntry(Dns.GetHostName());
+            this.ipAddr = ipHost.AddressList[0];
+            this.ipEndPoint = new IPEndPoint(this.ipAddr, 11111);
+
+            this.Sender = new Socket(this.ipAddr.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
         }
 
-        public void Execute() {
-            while (true) {
-                try {
-                    IPHostEntry ipHost = Dns.GetHostEntry(Dns.GetHostName());
-                    // Grab the first IP address
-                    IPAddress ipAddr = ipHost.AddressList[0];
-                    // Get the IP & Port
-                    IPEndPoint ipEndPoint = new IPEndPoint(ipAddr, 11111);
-
-                    // Create a socket with the given configuration
-                    Socket sender = new Socket(ipAddr.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
-
-                    try {
-                        // Connect to the Host his socket
-                        sender.Connect(ipEndPoint);
-
-                        // Gameplay here
-                        // -------------------------
-
-                        Console.WriteLine("Connected to the host...");
-
-                        server.sendMessage(sender, "Een hele mooie boodschap");
-
-                        // Write the message to the console - Debug reasons
-                        Console.WriteLine("Message -> {0}", server.receiveMessage(sender));
-
-                        //sender.Shutdown(SocketShutdown.Both);
-                        //sender.Close();
-                    }
-                    catch (ArgumentNullException ane) {
-                        Console.WriteLine("ArgumentNullException : {0}", ane.ToString()); 
-                    } 
-                    catch (SocketException se) {
-                        Console.WriteLine("SocketException : {0}", se.ToString()); 
-                        break;
-                    } 
-                    catch (Exception e) { 
-                        Console.WriteLine("Unexpected exception : {0}", e.ToString()); 
-                    } 
-                }
-                catch (Exception e) { 
-                    Console.WriteLine(e.ToString()); 
-                } 
-            }
+        // Connect to the host
+        public bool connectTo() {
+            try {
+                this.Sender.Connect(this.ipEndPoint);
+            } catch (Exception e) { return false; }
+            return true;
         }
+        
+        // Receive data from host connection
+        public string receive() {
+            string data = this.server.receiveMessage(this.Sender);
+            return data;
+        }
+
+        // Send data to host connection
+        public void send(string message) { this.server.sendMessage(this.Sender, message); }
+
+        // Disconnect from the host connection
+        public void Disconnect() { this.Sender.Disconnect(true); }
     }
 }

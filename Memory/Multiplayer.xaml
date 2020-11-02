@@ -5,10 +5,55 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Memory"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="1080" d:DesignWidth="1920"
       Title="Multiplayer">
 
-    <Grid>
-        
+    <Grid Width="1920" Height="1080">
+        <Grid.Background>
+            <ImageBrush ImageSource="/23703754.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <Label Content="VS" FontSize="70" Foreground="Black" HorizontalAlignment="Center" Margin="918,490,912,490" Visibility="Visible">
+            <Label.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="15"/>
+                </Style>
+            </Label.Resources>
+        </Label>
+        <Label Name="PlayerOne" Content="Player 1" FontSize="50" Foreground="Black" HorizontalAlignment="Center" Margin="570,490,1166,490" Visibility="Visible">
+            <Label.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="15"/>
+                </Style>
+            </Label.Resources>
+        </Label>
+        <Label Name="PlayerTwo" Content="Player 2" FontSize="50" Foreground="Black" HorizontalAlignment="Center" Margin="1160,490,576,490" Visibility="Visible">
+            <Label.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="15"/>
+                </Style>
+            </Label.Resources>
+        </Label>
+        <Button Name="Play" Background="White" FontSize="30" Foreground="Black" Content="Play" Margin="754,735,759,262" Click="onClickPlay" Visibility="Visible">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="15"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Label Name="Highscore1"  Content="Highscore" FontSize="20" Foreground="Black" HorizontalAlignment="Center" Margin="570,590,1166,439" Visibility="Visible">
+            <Label.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="15"/>
+                </Style>
+            </Label.Resources>
+        </Label>
+        <Label Name="Highscore2" Content="Highscore" FontSize="20" Foreground="Black" HorizontalAlignment="Center" Margin="1160,590,576,440" Visibility="Visible">
+            <Label.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="15"/>
+                </Style>
+            </Label.Resources>
+        </Label>
+
     </Grid>
 </Page>

@@ -63,6 +63,12 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Compile Include="PowerUps.xaml.cs">
+      <DependentUpon>PowerUps.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MemoryCard.xaml.cs">
+      <DependentUpon>MemoryCard.xaml</DependentUpon>
+    </Compile>
     <Compile Include="source\JSONParser.cs" />
     <Compile Include="source\JSONWriter.cs" />
     <Page Include="MainMenu.xaml">
@@ -87,7 +93,24 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Multiplayer.xaml">
+    <Page Include="Multiplayer.xaml"></Page>
+    <Page Include="MemoryCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PlayField.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Options.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Play.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PowerUps.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -95,6 +118,15 @@
   <ItemGroup>
     <Compile Include="Multiplayer.xaml.cs">
       <DependentUpon>Multiplayer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PlayField.xaml.cs">
+      <DependentUpon>PlayField.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Options.xaml.cs">
+      <DependentUpon>Options.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Play.xaml.cs">
+      <DependentUpon>Play.xaml</DependentUpon>
     </Compile>
     <Compile Include="multiplayer\Client.cs" />
     <Compile Include="multiplayer\Host.cs" />
@@ -126,6 +158,30 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="main_background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="23703754.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="music\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\playicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\quiticon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\optionsicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\highscoreicon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\multiplayericon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\localicon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
